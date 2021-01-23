@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         //rb.rotation = angle;
 
         // animate player
-        anim.SetFloat("AnimSpeed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
+        anim.SetFloat("AnimSpeed", movement.sqrMagnitude);
 
         // make character face correction direction
         if (movement.x > 0 && !facingRight)
