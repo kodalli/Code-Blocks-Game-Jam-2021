@@ -20,7 +20,7 @@ public class GunAim : MonoBehaviour
         cursor = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
 
         target = cursor - playerTransform.position;
