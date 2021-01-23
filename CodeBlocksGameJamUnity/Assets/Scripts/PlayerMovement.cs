@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        movement.x = Input
     }
     void FixedUpdate()
     {
