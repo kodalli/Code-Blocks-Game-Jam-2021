@@ -5,24 +5,36 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+    Vector2 mousePos;
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
+    public Camera cam;
+    [SerializeField] private gravityOn = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
+    
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
     void FixedUpdate()
     {
+        
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        Vector2 dir = mousePos - rb.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
 
         // animate player
         anim.SetFloat("AnimSpeed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
