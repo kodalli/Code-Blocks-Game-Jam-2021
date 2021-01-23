@@ -212,8 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 0}
-  cam: {fileID: 0}
+  rb: {fileID: 1024354868}
   gravityOn: 0
 --- !u!50 &1024354868
 Rigidbody2D:

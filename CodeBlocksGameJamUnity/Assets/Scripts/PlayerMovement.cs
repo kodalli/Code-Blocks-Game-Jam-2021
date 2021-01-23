@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     Vector2 mousePos;
     Vector2 movement;
     bool facingRight = false;
