@@ -10,14 +10,14 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
-    private Camera cam;
+    //private Camera cam;
     //[SerializeField] private bool gravityOn = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     
 
@@ -26,16 +26,16 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
     void FixedUpdate()
     {
         
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 dir = mousePos - rb.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        //Vector2 dir = mousePos - rb.position;
+        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        //rb.rotation = angle;
 
         // animate player
         anim.SetFloat("AnimSpeed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
