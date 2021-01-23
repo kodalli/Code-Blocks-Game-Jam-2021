@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
+    [SerializeField] private float moveSpeed = 5f;
+    private Rigidbody2D rb;
     Vector2 mousePos;
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
     private Camera cam;
-    [SerializeField] private bool gravityOn = false;
+    //[SerializeField] private bool gravityOn = false;
 
     void Start()
     {
