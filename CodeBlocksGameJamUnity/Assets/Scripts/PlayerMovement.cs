@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
-    public Camera cam;
-    [SerializeField] private gravityOn = false;
+    private Camera cam;
+    [SerializeField] private bool gravityOn = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     
 

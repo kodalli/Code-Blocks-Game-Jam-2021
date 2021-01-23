@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 1024354866}
   - component: {fileID: 1024354867}
   - component: {fileID: 1024354871}
+  - component: {fileID: 1024354872}
   m_Layer: 0
   m_Name: astronaut guy
   m_TagString: Untagged
@@ -211,8 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 1024354868}
-  cam: {fileID: 1386806975}
+  rb: {fileID: 0}
+  cam: {fileID: 0}
+  gravityOn: 0
 --- !u!50 &1024354868
 Rigidbody2D:
   serializedVersion: 4
@@ -293,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 1024354865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.264, y: -0.41, z: 0}
-  m_LocalScale: {x: 1.1822307, y: 1.4487674, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1041811722}
   - {fileID: 915471427}
@@ -316,6 +318,25 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2395921613160225922, guid: ebc156d9b92826940bc740d026d36d9c,
     type: 3}
   bulletForce: 20
+--- !u!95 &1024354872
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024354865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc0bb0a8d69fcfb4fb9e7f03a94e3386, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1041811721
 GameObject:
   m_ObjectHideFlags: 0
