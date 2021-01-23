@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
 
     public void Respawn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = respawnPoint.position;
     }
 }
