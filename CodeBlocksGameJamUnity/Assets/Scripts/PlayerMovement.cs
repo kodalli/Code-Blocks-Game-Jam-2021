@@ -7,13 +7,17 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     Vector2 movement;
+    Vector2 mousePos;
     bool facingRight = false;
     Animator anim;
+    public Camera cam;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
     void Update()
     {
@@ -23,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        Vector2 dir = mousePos - rb.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
 
         // animate player
         anim.SetFloat("AnimSpeed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
