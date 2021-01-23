@@ -107,6 +107,102 @@ TextureImporter:
   - first:
       213: -7639609208599458607
     second: Spaceship BG Tileset_34
+  - first:
+      213: 1207736028056944532
+    second: Spaceship BG Tileset_0
+  - first:
+      213: -6091294960496368771
+    second: Spaceship BG Tileset_1
+  - first:
+      213: 7490477292155230635
+    second: Spaceship BG Tileset_2
+  - first:
+      213: 1445946603190312644
+    second: Spaceship BG Tileset_3
+  - first:
+      213: -4744122523328144293
+    second: Spaceship BG Tileset_4
+  - first:
+      213: -4059373701592646112
+    second: Spaceship BG Tileset_5
+  - first:
+      213: 5800953688335298268
+    second: Spaceship BG Tileset_6
+  - first:
+      213: 3343182251412975679
+    second: Spaceship BG Tileset_7
+  - first:
+      213: -1710261873939678888
+    second: Spaceship BG Tileset_8
+  - first:
+      213: 3486110321458125895
+    second: Spaceship BG Tileset_9
+  - first:
+      213: 115085028993865154
+    second: Spaceship BG Tileset_10
+  - first:
+      213: -2362611149089492335
+    second: Spaceship BG Tileset_11
+  - first:
+      213: 4720075480257208760
+    second: Spaceship BG Tileset_12
+  - first:
+      213: 3091638859880480044
+    second: Spaceship BG Tileset_13
+  - first:
+      213: -8990059446506060707
+    second: Spaceship BG Tileset_14
+  - first:
+      213: 1177260977269217549
+    second: Spaceship BG Tileset_15
+  - first:
+      213: 6178050494440965039
+    second: Spaceship BG Tileset_16
+  - first:
+      213: 2187609421248913766
+    second: Spaceship BG Tileset_17
+  - first:
+      213: -87052327983653112
+    second: Spaceship BG Tileset_18
+  - first:
+      213: 7754330511466769613
+    second: Spaceship BG Tileset_19
+  - first:
+      213: 3487977983968381451
+    second: Spaceship BG Tileset_20
+  - first:
+      213: -6727836410431078063
+    second: Spaceship BG Tileset_21
+  - first:
+      213: 9165089556309455109
+    second: Spaceship BG Tileset_22
+  - first:
+      213: -8828408303049091132
+    second: Spaceship BG Tileset_23
+  - first:
+      213: 8612872313209949091
+    second: Spaceship BG Tileset_24
+  - first:
+      213: 5076794891869183659
+    second: Spaceship BG Tileset_25
+  - first:
+      213: 358816363819135179
+    second: Spaceship BG Tileset_26
+  - first:
+      213: -5464049902821113462
+    second: Spaceship BG Tileset_27
+  - first:
+      213: 5044192391609351833
+    second: Spaceship BG Tileset_28
+  - first:
+      213: 3574219151476603566
+    second: Spaceship BG Tileset_29
+  - first:
+      213: 638083912083725318
+    second: Spaceship BG Tileset_30
+  - first:
+      213: 6300527628694283322
+    second: Spaceship BG Tileset_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -218,8 +314,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd8e157219913dc50800000000000000
-      internalID: 6688717982795950303
+      spriteID: 49f76c6c48db2c010800000000000000
+      internalID: 1207736028056944532
       vertices: []
       indices: 
       edges: []
@@ -239,8 +335,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9288bd0420ea7da10800000000000000
-      internalID: 1934205889680214057
+      spriteID: d73ac79a18f577ba0800000000000000
+      internalID: -6091294960496368771
       vertices: []
       indices: 
       edges: []
@@ -260,8 +356,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c23792f5ec67abe10800000000000000
-      internalID: 2214212795537912620
+      spriteID: ba9da05396583f760800000000000000
+      internalID: 7490477292155230635
       vertices: []
       indices: 
       edges: []
@@ -281,8 +377,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f4d57c4c340c0c60800000000000000
-      internalID: 7785602512844084473
+      spriteID: 4ce575f46c8011410800000000000000
+      internalID: 1445946603190312644
       vertices: []
       indices: 
       edges: []
@@ -302,8 +398,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 277a8a9848e485530800000000000000
-      internalID: 3843908613112899442
+      spriteID: b5c981253bd792eb0800000000000000
+      internalID: -4744122523328144293
       vertices: []
       indices: 
       edges: []
@@ -323,8 +419,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc4398591e218e230800000000000000
-      internalID: 3668202656579007695
+      spriteID: 02ef10a30253aa7c0800000000000000
+      internalID: -4059373701592646112
       vertices: []
       indices: 
       edges: []
@@ -344,8 +440,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bed8f994da91b6120800000000000000
-      internalID: 2408046657814892011
+      spriteID: cdea7bf05a0218050800000000000000
+      internalID: 5800953688335298268
       vertices: []
       indices: 
       edges: []
@@ -365,8 +461,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e192f5e8a18995e0800000000000000
-      internalID: -1902346805174955546
+      spriteID: f307cd27b8e556e20800000000000000
+      internalID: 3343182251412975679
       vertices: []
       indices: 
       edges: []
@@ -386,8 +482,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b89b26b82dd153e50800000000000000
-      internalID: 6788364803449731467
+      spriteID: 8597ee213ede348e0800000000000000
+      internalID: -1710261873939678888
       vertices: []
       indices: 
       edges: []
@@ -397,7 +493,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -407,8 +503,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01597c8e2449489a0800000000000000
-      internalID: -6231692969279777520
+      spriteID: 74c955efdd6216030800000000000000
+      internalID: 3486110321458125895
       vertices: []
       indices: 
       edges: []
@@ -418,7 +514,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -428,8 +524,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d2aa1f7beb670c20800000000000000
-      internalID: 3172623121699742416
+      spriteID: 2c51520693dd89100800000000000000
+      internalID: 115085028993865154
       vertices: []
       indices: 
       edges: []
@@ -439,7 +535,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -449,8 +545,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a34552ce2d7b030800000000000000
-      internalID: 3510506346238982789
+      spriteID: 192b4247da1563fd0800000000000000
+      internalID: -2362611149089492335
       vertices: []
       indices: 
       edges: []
@@ -459,8 +555,8 @@ TextureImporter:
       name: Spaceship BG Tileset_12
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
+        x: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -470,98 +566,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd20fc10ce973b4d0800000000000000
-      internalID: -3120016062288035108
+      spriteID: 8b123c924a3118140800000000000000
+      internalID: 4720075480257208760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Spaceship BG Tileset_13
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9468fef32f8be820800000000000000
-      internalID: 2948607765808440479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spaceship BG Tileset_14
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f32441fba78ed56b0800000000000000
-      internalID: -5305829172083146177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spaceship BG Tileset_15
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e3262217d6679bf0800000000000000
-      internalID: -317672174797839386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spaceship BG Tileset_16
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b3ed37516281fe30800000000000000
-      internalID: 4535549654325912498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spaceship BG Tileset_17
       rect:
         serializedVersion: 2
         x: 32
@@ -575,8 +587,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf167c4521a0e5cd0800000000000000
-      internalID: -2567603663706562053
+      spriteID: c2d38f0b925b7ea20800000000000000
+      internalID: 3091638859880480044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spaceship BG Tileset_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d548c559094ec3380800000000000000
+      internalID: -8990059446506060707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spaceship BG Tileset_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d099f061f98765010800000000000000
+      internalID: 1177260977269217549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spaceship BG Tileset_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa384952138dcb550800000000000000
+      internalID: 6178050494440965039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spaceship BG Tileset_17
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661e6dc9d23fb5e10800000000000000
+      internalID: 2187609421248913766
       vertices: []
       indices: 
       edges: []
@@ -585,7 +681,7 @@ TextureImporter:
       name: Spaceship BG Tileset_18
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 48
         width: 16
         height: 16
@@ -596,8 +692,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22926d3db0cf0ec40800000000000000
-      internalID: 5539704669394577698
+      spriteID: 80fd9a17e5abacef0800000000000000
+      internalID: -87052327983653112
       vertices: []
       indices: 
       edges: []
@@ -606,8 +702,8 @@ TextureImporter:
       name: Spaceship BG Tileset_19
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -617,8 +713,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 692343ec9e43a2110800000000000000
-      internalID: 1236859226458174102
+      spriteID: dcc23f6148aec9b60800000000000000
+      internalID: 7754330511466769613
       vertices: []
       indices: 
       edges: []
@@ -627,8 +723,8 @@ TextureImporter:
       name: Spaceship BG Tileset_20
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -638,8 +734,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27d196ec52e03c680800000000000000
-      internalID: -8736123296629056142
+      spriteID: b0a81de0f79c76030800000000000000
+      internalID: 3487977983968381451
       vertices: []
       indices: 
       edges: []
@@ -648,8 +744,8 @@ TextureImporter:
       name: Spaceship BG Tileset_21
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -659,8 +755,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e08441f5812e8daf0800000000000000
-      internalID: -371298374955808754
+      spriteID: 15101592e6ce1a2a0800000000000000
+      internalID: -6727836410431078063
       vertices: []
       indices: 
       edges: []
@@ -669,8 +765,8 @@ TextureImporter:
       name: Spaceship BG Tileset_22
       rect:
         serializedVersion: 2
-        x: 64
-        y: 48
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -680,8 +776,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50985cc3a343946b0800000000000000
-      internalID: -5311656860774463227
+      spriteID: 501b77a8460f03f70800000000000000
+      internalID: 9165089556309455109
       vertices: []
       indices: 
       edges: []
@@ -690,8 +786,8 @@ TextureImporter:
       name: Spaceship BG Tileset_23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 64
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -701,8 +797,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ffd0e37bd724520800000000000000
-      internalID: 2684846553839828876
+      spriteID: 4c756ac5c613b7580800000000000000
+      internalID: -8828408303049091132
       vertices: []
       indices: 
       edges: []
@@ -711,8 +807,8 @@ TextureImporter:
       name: Spaceship BG Tileset_24
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 80
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -722,8 +818,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7af2d2573137bc210800000000000000
-      internalID: 1354302640362434471
+      spriteID: 3ab0da46cb1178770800000000000000
+      internalID: 8612872313209949091
       vertices: []
       indices: 
       edges: []
@@ -732,8 +828,8 @@ TextureImporter:
       name: Spaceship BG Tileset_25
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -743,8 +839,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46885a986a02b71c0800000000000000
-      internalID: -4504971102608062364
+      spriteID: bae516f5e06647640800000000000000
+      internalID: 5076794891869183659
       vertices: []
       indices: 
       edges: []
@@ -753,8 +849,8 @@ TextureImporter:
       name: Spaceship BG Tileset_26
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 0
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -764,8 +860,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a097f622df65800800000000000000
-      internalID: 600945924641458734
+      spriteID: bc07901f495caf400800000000000000
+      internalID: 358816363819135179
       vertices: []
       indices: 
       edges: []
@@ -774,8 +870,8 @@ TextureImporter:
       name: Spaceship BG Tileset_27
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -785,8 +881,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08cff0faa1e2c7e50800000000000000
-      internalID: 6808367428818435200
+      spriteID: a81075b209bcb24b0800000000000000
+      internalID: -5464049902821113462
       vertices: []
       indices: 
       edges: []
@@ -795,8 +891,8 @@ TextureImporter:
       name: Spaceship BG Tileset_28
       rect:
         serializedVersion: 2
-        x: 112
-        y: 32
+        x: 32
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -806,8 +902,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1427a2052d7e91460800000000000000
-      internalID: 7213051168684667457
+      spriteID: 99e7a904142900640800000000000000
+      internalID: 5044192391609351833
       vertices: []
       indices: 
       edges: []
@@ -816,8 +912,8 @@ TextureImporter:
       name: Spaceship BG Tileset_29
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -827,8 +923,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab9d3462f2b11a860800000000000000
-      internalID: 7539337140514314682
+      spriteID: eaa3929916d2a9130800000000000000
+      internalID: 3574219151476603566
       vertices: []
       indices: 
       edges: []
@@ -837,8 +933,8 @@ TextureImporter:
       name: Spaceship BG Tileset_30
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
+        x: 64
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -848,8 +944,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fd2f19bad96aac50800000000000000
-      internalID: 6677265785659796979
+      spriteID: 60c54a4ffedead800800000000000000
+      internalID: 638083912083725318
       vertices: []
       indices: 
       edges: []
@@ -858,8 +954,8 @@ TextureImporter:
       name: Spaceship BG Tileset_31
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
+        x: 80
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -869,8 +965,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9940541b17075e7a0800000000000000
-      internalID: -6348544466101140327
+      spriteID: a346bd52f78ff6750800000000000000
+      internalID: 6300527628694283322
       vertices: []
       indices: 
       edges: []
@@ -879,7 +975,7 @@ TextureImporter:
       name: Spaceship BG Tileset_32
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -900,7 +996,7 @@ TextureImporter:
       name: Spaceship BG Tileset_33
       rect:
         serializedVersion: 2
-        x: 96
+        x: 112
         y: 0
         width: 16
         height: 16
@@ -913,27 +1009,6 @@ TextureImporter:
       bones: []
       spriteID: 8da4b70de531bc170800000000000000
       internalID: 8199668844503714520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spaceship BG Tileset_34
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1dc40a2b6e7aaf590800000000000000
-      internalID: -7639609208599458607
       vertices: []
       indices: 
       edges: []
