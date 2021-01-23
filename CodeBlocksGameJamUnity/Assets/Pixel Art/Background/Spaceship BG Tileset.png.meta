@@ -1,10 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: f8580e9e925f5eb4bbf8b77186d2a131
-TextureImporter:
-  internalIDToNameTable: []
-=======
-guid: a4ca1279bd780524798b5429c2815f34
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -112,7 +107,6 @@ TextureImporter:
   - first:
       213: -7639609208599458607
     second: Spaceship BG Tileset_34
->>>>>>> 4875d435cea975d3abc2736cb8bf433cdff0a439
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,33 +136,21 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< HEAD
-    filterMode: -1
-=======
     filterMode: 0
->>>>>>> 4875d435cea975d3abc2736cb8bf433cdff0a439
     aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> 4875d435cea975d3abc2736cb8bf433cdff0a439
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  spritePixelsToUnits: 100
-=======
   spritePixelsToUnits: 16
->>>>>>> 4875d435cea975d3abc2736cb8bf433cdff0a439
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -180,16 +162,13 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< HEAD
-    textureCompression: 1
-=======
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -215,7 +194,6 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
->>>>>>> 4875d435cea975d3abc2736cb8bf433cdff0a439
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -224,9 +202,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
       name: Spaceship BG Tileset_0
@@ -963,11 +938,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
->>>>>>> 4875d435cea975d3abc2736cb8bf433cdff0a439
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d75a4a572a97f39489dd6c3327bf842c
     internalID: 0
     vertices: []
     indices: 
