@@ -11,6 +11,10 @@ public class MerchantController : MonoBehaviour
     [SerializeField] private GameObject key;
     private GameObject temp;
 
+    [SerializeField] private bool isPaused;
+    [SerializeField] private GameObject merchantMenuUI;
+    [SerializeField] private GameObject gameComponents;
+
     private void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
@@ -26,7 +30,6 @@ public class MerchantController : MonoBehaviour
             ChangePrice();
         }
     }
-
     private void ChangePrice()
     {
         cost *= ps.Level;
@@ -42,7 +45,6 @@ public class MerchantController : MonoBehaviour
             temp = Instantiate(key, pos, Quaternion.identity);
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
