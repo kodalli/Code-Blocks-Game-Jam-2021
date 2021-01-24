@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
     public Transform respawnPoint;
     public GameObject playerPrefab;
 
+    public static int methCount;
+
     private void Awake()
     {
         instance = this;
@@ -22,4 +24,10 @@ public class LevelManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = respawnPoint.position;
     }
+    public void addMeth()
+    {
+        methCount += 5;
+        Debug.Log(methCount);
+    }
+
 }
