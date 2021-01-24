@@ -7,8 +7,6 @@ public class Bullet : MonoBehaviour
 
     public GameObject hitEffect;
 
-    public LevelManager lm;
-
     private void Start()
     {
         StartCoroutine(Death());
@@ -32,7 +30,5 @@ public class Bullet : MonoBehaviour
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
         Destroy(gameObject);
-
-        lm.addMeth();
     }
 }
