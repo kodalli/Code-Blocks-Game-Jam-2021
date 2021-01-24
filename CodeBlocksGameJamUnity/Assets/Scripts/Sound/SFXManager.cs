@@ -9,10 +9,17 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private AudioSource gunShot;
     [SerializeField] private AudioSource hitMarker;
     [SerializeField] private AudioSource pop;
+    [SerializeField] private AudioSource theme1;
+    [SerializeField] private AudioSource systemActivate;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        theme1.Play();
     }
 
     public void PlayGunShot()
@@ -29,5 +36,10 @@ public class SFXManager : MonoBehaviour
     {
         pop.PlayOneShot(pop.clip, 0.3f);
 
+    }
+
+    public void PlaySystemActivate()
+    {
+        systemActivate.PlayOneShot(systemActivate.clip, 0.3f);
     }
 }
