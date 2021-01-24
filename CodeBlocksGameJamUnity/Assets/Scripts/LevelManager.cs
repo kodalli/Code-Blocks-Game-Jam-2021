@@ -41,6 +41,11 @@ public class LevelManager : MonoBehaviour
         player.transform.position = respawnPoint.position;
         ps.HP = 100f;
     }
+    public void toMainMenu()
+    {
+        ps.SavePlayer();
+        SceneManager.LoadScene("Start Menu");
+    }
 
     // Call PlayerState.SavePlayer() each time a scene change happens to save information globally
 }
