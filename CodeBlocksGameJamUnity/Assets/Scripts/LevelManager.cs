@@ -24,12 +24,12 @@ public class LevelManager : MonoBehaviour
     }
 
     private void Update()
-    {  
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ps.SavePlayer();
-            SceneManager.LoadScene("Start Menu");
-        }
+    {
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    ps.SavePlayer();
+        //    SceneManager.LoadScene("Start Menu");
+        //}
         if (Input.GetKeyDown(KeyCode.Space))
             ps.SystemParts += 10;
     }
