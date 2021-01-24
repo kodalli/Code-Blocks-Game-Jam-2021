@@ -9,6 +9,8 @@ public class BunnyController : MonoBehaviour
     private Vector2 movement;
     private Vector2 player;
     private Rigidbody2D rb;
+    [SerializeField] private GameObject itemDrop;
+    [SerializeField] private int health = 100;
 
     private void Start()
     {
@@ -42,13 +44,20 @@ public class BunnyController : MonoBehaviour
     {
         //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         //Destroy(effect, 5f);
+        Instantiate(itemDrop, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Bullet")
+        {
+            health -= 75;
+            Time.timeScale = 0.00001f;
+        }
+        if (health < 0)
             Die();
+        Time.timeScale = 1;
     }
 
 

@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
+    PlayerState ps;
     //private Camera cam;
     //[SerializeField] private bool gravityOn = false;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ps = GetComponent<PlayerState>();
         //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     
@@ -52,4 +54,5 @@ public class PlayerMovement : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+
 }
