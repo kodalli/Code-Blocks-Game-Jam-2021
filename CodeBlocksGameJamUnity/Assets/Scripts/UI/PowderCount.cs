@@ -9,7 +9,7 @@ public class PowderCount : MonoBehaviour
     [SerializeField] private int index = 0;
 
     private TextMeshProUGUI tmp;
-    private string[] output = new string[4];
+    private string[] output = new string[5];
 
     PlayerState ps;
 
@@ -24,7 +24,8 @@ public class PowderCount : MonoBehaviour
         output[0] = "Magic Powder: " + ps.Money.ToString();
         output[1] = "Health: " + ps.HP.ToString();
         output[2] = "Level: " + ps.Level.ToString();
-        output[3] = "Repair Status: " + ps.RepairStatus.ToString();
+        output[3] = "Repair Status: " + ps.RepairStatus.ToString() + "%";
+        output[4] = "System Parts: " + ps.SystemParts.ToString();
         tmp.text = output[index];
     }
 }

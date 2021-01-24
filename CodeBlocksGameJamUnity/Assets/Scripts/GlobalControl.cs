@@ -11,6 +11,7 @@ public class GlobalControl : MonoBehaviour
     public float Money;
     public float RepairStatus;
     public float Level;
+    public float SystemParts;
 
     private void Awake()
     {

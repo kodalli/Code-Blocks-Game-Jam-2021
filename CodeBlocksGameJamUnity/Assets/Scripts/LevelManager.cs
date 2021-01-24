@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene("Start Menu");
         }
         if (Input.GetKeyDown(KeyCode.Space))
-            ps.HP -= 10;
+            ps.SystemParts += 10;
     }
 
     public void Respawn()

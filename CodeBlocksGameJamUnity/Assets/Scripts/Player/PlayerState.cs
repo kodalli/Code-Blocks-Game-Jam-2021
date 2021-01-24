@@ -8,6 +8,7 @@ public class PlayerState : MonoBehaviour
     public float Money;
     public float RepairStatus;
     public float Level;
+    public float SystemParts;
 
     // Load data from GlobalControl
     private void Start()
@@ -16,6 +17,7 @@ public class PlayerState : MonoBehaviour
         Money = GlobalControl.Instance.Money;
         RepairStatus = GlobalControl.Instance.RepairStatus;
         Level = GlobalControl.Instance.Level;
+        SystemParts = GlobalControl.Instance.SystemParts;
 
     }
 
@@ -25,5 +27,6 @@ public class PlayerState : MonoBehaviour
         GlobalControl.Instance.Money = Money;
         GlobalControl.Instance.RepairStatus = RepairStatus;
         GlobalControl.Instance.Level = Level;
+        GlobalControl.Instance.SystemParts = SystemParts;
     }
 }
