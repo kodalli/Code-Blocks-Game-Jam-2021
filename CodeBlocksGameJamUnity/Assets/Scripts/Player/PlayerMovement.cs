@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
+    PlayerState ps;
     //private Camera cam;
     //[SerializeField] private bool gravityOn = false;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ps = GetComponent<PlayerState>();
         //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     
@@ -47,9 +49,19 @@ public class PlayerMovement : MonoBehaviour
             Flip();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+            if (ps.HP > 10)
+                ps.HP -= 10;
+            else
+                LevelManager.instance.Respawn();
+    }
+
     void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+
 }
