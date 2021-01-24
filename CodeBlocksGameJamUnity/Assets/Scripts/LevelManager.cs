@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public Transform respawnPoint;
     public GameObject playerPrefab;
 
-    public static int methCount;
+    private PlayerState ps;
 
     private void Awake()
     {
@@ -18,16 +18,29 @@ public class LevelManager : MonoBehaviour
         Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
     }
 
+    private void Start()
+    {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+    }
+
+    private void Update()
+    {  
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ps.SavePlayer();
+            SceneManager.LoadScene("Start Menu");
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+            ps.SystemParts += 10;
+    }
+
     public void Respawn()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = respawnPoint.position;
-    }
-    public void addMeth()
-    {
-        methCount += 5;
-        Debug.Log(methCount);
+        ps.HP = 100f;
     }
 
+    // Call PlayerState.SavePlayer() each time a scene change happens to save information globally
 }

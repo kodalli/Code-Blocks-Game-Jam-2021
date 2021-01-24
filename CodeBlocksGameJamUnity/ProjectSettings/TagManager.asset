@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Money
   layers:
   - Default
   - TransparentFX
@@ -47,5 +48,5 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: UI
-    uniqueID: 997355853
+    uniqueID: 433609013
     locked: 0
