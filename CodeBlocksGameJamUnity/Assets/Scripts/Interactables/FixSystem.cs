@@ -19,11 +19,12 @@ public class FixSystem : MonoBehaviour
 
     private void Update()
     {
-        if (isNear && ps.SystemParts >= repairCost && Input.GetKeyDown(KeyCode.E))
+        if (isNear && ps.SystemParts >= repairCost && Input.GetKeyDown(KeyCode.E) && ps.RepairStatus < 100)
         {
             anim.SetTrigger("SystemOn");
             ps.SystemParts -= repairCost;
             ps.RepairStatus += 25;
+            SFXManager.instance.PlaySystemActivate();
         }
     }
 
