@@ -7,7 +7,7 @@ public class GlobalControl : MonoBehaviour
     public static GlobalControl Instance;
 
     // game variables
-    public float HP = 100f;
+    public float HP;
     public float Money;
     public float RepairStatus;
     public float Level;
@@ -21,4 +21,5 @@ public class GlobalControl : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

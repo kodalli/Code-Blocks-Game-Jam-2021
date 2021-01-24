@@ -14,7 +14,6 @@ public class CollectBag : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             ps.Money += 1f;
-            ps.HP = 100f;
             Destroy(gameObject);
             //Debug.Log(ps.Money);
         }

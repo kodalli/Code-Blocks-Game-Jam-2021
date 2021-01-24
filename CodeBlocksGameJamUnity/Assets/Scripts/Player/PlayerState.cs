@@ -16,7 +16,6 @@ public class PlayerState : MonoBehaviour
         Money = GlobalControl.Instance.Money;
         RepairStatus = GlobalControl.Instance.RepairStatus;
         Level = GlobalControl.Instance.Level;
-        Debug.Log(HP);
 
     }
 

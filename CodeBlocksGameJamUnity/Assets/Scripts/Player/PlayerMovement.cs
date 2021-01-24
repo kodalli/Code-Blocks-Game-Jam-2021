@@ -49,6 +49,15 @@ public class PlayerMovement : MonoBehaviour
             Flip();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Enemy"))
+            if (ps.HP > 10)
+                ps.HP -= 10;
+            else
+                LevelManager.instance.Respawn();
+    }
+
     void Flip()
     {
         facingRight = !facingRight;
