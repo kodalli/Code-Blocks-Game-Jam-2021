@@ -166,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
@@ -239,7 +239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128889761
 GameObject:
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!1 &219917422
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!4 &219917424
 Transform:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!1 &701316898
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!1 &788476383
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!1 &839309994
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ Transform:
   - {fileID: 701316899}
   - {fileID: 1415437404}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1386806973
 GameObject:
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!1 &1524430668
 GameObject:
   m_ObjectHideFlags: 0
@@ -8428,7 +8428,7 @@ PrefabInstance:
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
@@ -8485,7 +8485,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1660447901
 PrefabInstance:
@@ -8532,7 +8532,7 @@ PrefabInstance:
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
@@ -8605,7 +8605,7 @@ Transform:
   - {fileID: 2035557750}
   - {fileID: 1524430669}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035557749
 GameObject:
@@ -11850,7 +11850,7 @@ PrefabInstance:
     - target: {fileID: 485167105050263561, guid: 4e84ccd59429f654aa26746d176be05a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 485167105050263561, guid: 4e84ccd59429f654aa26746d176be05a,
         type: 3}
@@ -11924,7 +11924,7 @@ PrefabInstance:
     - target: {fileID: 3010208676758514743, guid: 71d1543d338590548a5c52fed831c90a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3010208676758514743, guid: 71d1543d338590548a5c52fed831c90a,
         type: 3}
@@ -11988,7 +11988,7 @@ PrefabInstance:
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1490823166432598940, guid: be1bcc746d355b14d9a4696c59b94b67,
         type: 3}
