@@ -234,8 +234,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Encounters:
-  - {fileID: 3560032761882890405, guid: 5f845d3534532ec4a8a5a1caf3e3cf55, type: 3}
-  - {fileID: 4027767948994675852, guid: f780f39007490674f912bc4299629389, type: 3}
+  - {fileID: 3010208676758514730, guid: 71d1543d338590548a5c52fed831c90a, type: 3}
+  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
+  Chances:
+  - 0.3
+  - 0.7
   Depth: 4
 --- !u!4 &1760828677
 Transform:

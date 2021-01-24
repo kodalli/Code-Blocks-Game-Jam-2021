@@ -5,7 +5,9 @@ using UnityEngine;
 public class MapGen : MonoBehaviour
 {
     public GameObject[] Encounters;
+    public float[] Chances;
     public int Depth;
+    private float sumR;
     private float xPos;
     private float yPos;
     private const float RATIO = 1;
@@ -24,22 +26,44 @@ public class MapGen : MonoBehaviour
     {
         totalNodes = (int)Mathf.Pow(2, Depth)-2;
         encounterChoice = new int[totalNodes];
+        
+
+        for (int i = 0; i < Chances.Length; i++)
+        {
+            sumR += Chances[i];
+        }
+        
 
         for (int i = 0; i < totalNodes; i++)
         {
-            int randomCounter = Random.Range(0, 9);
+            float randomCounter = Random.Range(0, sumR);
 
-            if (randomCounter <= 6)
+            for (int j = 1; j < Chances.Length; j++)
             {
-                encounterChoice[i] = 0;
+                if (randomCounter <= Chances[j])
+                {
+                    encounterChoice[i] = j;
+                    break;
+                }
             }
 
-            if (randomCounter > 6)
-            {
-                encounterChoice[i] = 1;
-
-            }
         }
+
+        //for (int i = 0; i < totalNodes; i++)
+        //{
+        //    int randomCounter = Random.Range(0, 9);
+
+        //    if (randomCounter <= 6)
+        //    {
+        //        encounterChoice[i] = 0;
+        //    }
+
+        //    if (randomCounter > 6)
+        //    {
+        //        encounterChoice[i] = 1;
+
+        //    }
+        //}
     }
     private void DrawMaze()
     {
