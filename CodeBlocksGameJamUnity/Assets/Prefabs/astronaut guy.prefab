@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 6604092576032048281}
   - component: {fileID: 6604092576032048285}
   - component: {fileID: 6604092576032048274}
-  - component: {fileID: 323221759680615221}
   - component: {fileID: 1332370637881933204}
   m_Layer: 0
   m_Name: astronaut guy
@@ -271,7 +270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6604092576032048283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e6b9b1a178a8846b85bf384c3beb1f, type: 3}
+  m_Script: {fileID: 11500000, guid: f919635201cc92c4eb68864836de6bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -310,18 +309,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &323221759680615221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604092576032048283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2688d80d859ea4baef44a82b522c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1332370637881933204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,3 +325,4 @@ MonoBehaviour:
   Money: 0
   RepairStatus: 0
   Level: 0
+  SystemParts: 0
