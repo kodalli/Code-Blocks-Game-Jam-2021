@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
-    Vector2 mousePos;
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
