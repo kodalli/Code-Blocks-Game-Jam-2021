@@ -12,7 +12,6 @@ public class GlobalControl : MonoBehaviour
     public float RepairStatus;
     public float Level;
     public float SystemParts;
-
     private void Awake()
     {
         if (Instance == null) {

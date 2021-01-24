@@ -22,7 +22,7 @@ public class MerchantController : MonoBehaviour
         {
             // Load Shop Scene
             ps.Money -= cost;
-            ps.SystemParts += 25;
+            ps.SystemParts += quantityPartsSold;
             ChangePrice();
         }
     }

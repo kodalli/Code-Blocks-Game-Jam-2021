@@ -18,7 +18,6 @@ public class PlayerState : MonoBehaviour
         RepairStatus = GlobalControl.Instance.RepairStatus;
         Level = GlobalControl.Instance.Level;
         SystemParts = GlobalControl.Instance.SystemParts;
-
     }
 
     public void SavePlayer()
