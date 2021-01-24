@@ -27,7 +27,7 @@ public class FixSystem : MonoBehaviour
 
     private void Update()
     {
-        if (isNear && ps.SystemParts >= repairCost && Input.GetKeyDown(KeyCode.E) && ps.RepairStatus < 100)
+        if (isNear && ps.SystemParts >= repairCost && Input.GetKeyDown(KeyCode.E) && health <= 0)
         {
             anim.SetBool("SystemOn", true);
             ps.SystemParts -= repairCost;
@@ -55,7 +55,11 @@ public class FixSystem : MonoBehaviour
             if (health <= 0)
             {
                 anim.SetBool("SystemOn", false);
-                ps.RepairStatus -= 25f;
+                if (ps.RepairStatus > 0)
+                {
+                    ps.RepairStatus -= 25f;
+                }
+                
             }
         }
     }
