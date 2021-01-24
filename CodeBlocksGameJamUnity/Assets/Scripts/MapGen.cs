@@ -10,7 +10,7 @@ public class MapGen : MonoBehaviour
     private float sumR;
     private float xPos;
     private float yPos;
-    private const float RATIO = 1;
+    private const float RATIO = 4;
     private const float DEPTH_DIST = 5 * RATIO;
     private const float NODE_DIST = 10 * RATIO;
     private int totalNodes;
