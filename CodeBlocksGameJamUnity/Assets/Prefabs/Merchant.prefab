@@ -119,6 +119,8 @@ MonoBehaviour:
   cost: 25
   quantityPartsSold: 25
   key: {fileID: 6015523535228782959, guid: e875495cf5518bc4897c743fe953c456, type: 3}
+  pauseMenuUI: {fileID: 0}
+  gameComponents: {fileID: 0}
 --- !u!61 &-1440840669533670767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.015366018, y: -0.24585685}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.8258513, y: 1.5082862}
   m_EdgeRadius: 0
