@@ -7,11 +7,12 @@ public class FixSystem : MonoBehaviour
     private bool isNear = false;
     private PlayerState ps;
     private Animator anim;
-    [SerializeField] private float repairCost = 25;
+    [SerializeField] private float repairCost = 15;
     [SerializeField] private GameObject key;
     private GameObject temp;
     private float health = 0;
     private Transform bar;
+    [SerializeField] private int index;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class FixSystem : MonoBehaviour
             bar.localScale = new Vector3(1f, 1f, 1f);
             health = 100f;
         }
+        ps.SystemsHP[index] = (int)health;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -2650,9 +2650,10 @@ MonoBehaviour:
   HP: 100
   Money: 0
   RepairStatus: 0
-  Level: 1
+  Level: 0
   SystemParts: 0
   LevelType: 0
+  increment: 0
 --- !u!4 &2095041872
 Transform:
   m_ObjectHideFlags: 0

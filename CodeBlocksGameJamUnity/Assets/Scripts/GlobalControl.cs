@@ -14,6 +14,7 @@ public class GlobalControl : MonoBehaviour
     public float SystemParts;
     public int LevelType;
     public int increment;
+    public int[] SystemsHP = new int[4];
 
     private void Awake()
     {

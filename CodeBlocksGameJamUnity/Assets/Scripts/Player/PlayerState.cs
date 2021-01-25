@@ -11,6 +11,8 @@ public class PlayerState : MonoBehaviour
     public float SystemParts;
     public int LevelType;
     public int increment;
+    public bool Spawn = true;
+    public int[] SystemsHP = new int[4];
 
     // Load data from GlobalControl
     private void Start()
@@ -22,6 +24,9 @@ public class PlayerState : MonoBehaviour
         SystemParts = GlobalControl.Instance.SystemParts;
         LevelType = GlobalControl.Instance.LevelType;
         increment = GlobalControl.Instance.increment;
+
+        for (int i = 0; i < SystemsHP.Length; i++)
+            SystemsHP[i] = GlobalControl.Instance.SystemsHP[i];
     }
 
     public void SavePlayer()
@@ -33,6 +38,9 @@ public class PlayerState : MonoBehaviour
         GlobalControl.Instance.SystemParts = SystemParts;
         GlobalControl.Instance.LevelType = LevelType;
         GlobalControl.Instance.increment = increment;
+
+        for (int i = 0; i < SystemsHP.Length; i++)
+            GlobalControl.Instance.SystemsHP[i] = SystemsHP[i];
     }
 
     public void Button1()

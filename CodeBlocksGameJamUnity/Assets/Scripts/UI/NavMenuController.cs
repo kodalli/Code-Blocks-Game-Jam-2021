@@ -17,7 +17,7 @@ public class NavMenuController : MonoBehaviour
         {
             buttons[i].GetComponent<Button>().interactable = false;
         }
-        int level = (int)ps.Level;
+        int level = (int)ps.Level + 1;
         Debug.Log(level);
         buttons[level * 2 - 1].GetComponent<Button>().interactable = true;
         buttons[level * 2 - 2].GetComponent<Button>().interactable = true;
