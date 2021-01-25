@@ -11,14 +11,14 @@ public class NavMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        //ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
 
         for (int i = 0; i < buttons.Count; i++)
         {
             buttons[i].GetComponent<Button>().interactable = false;
         }
         int level = (int)ps.Level + 1;
-        Debug.Log(level);
         buttons[level * 2 - 1].GetComponent<Button>().interactable = true;
         buttons[level * 2 - 2].GetComponent<Button>().interactable = true;
 
@@ -34,7 +34,13 @@ public class NavMenuController : MonoBehaviour
         ps.increment += 2;
 
         if (ps.increment >= buttons.Count - 1)
+        {
+            // last level
+            //LoadScene();
+            ps.SavePlayer();
             return;
+        }
+            
 
         Activate();
         LoadScene();
@@ -50,7 +56,13 @@ public class NavMenuController : MonoBehaviour
         ps.increment += 2;
 
         if (ps.increment >= buttons.Count - 1)
+        {
+            // last level
+            //LoadScene();
+            ps.SavePlayer();
             return;
+        }
+            
 
         Activate();
         LoadScene();

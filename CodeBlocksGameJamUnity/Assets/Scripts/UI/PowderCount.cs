@@ -19,14 +19,14 @@ public class PowderCount : MonoBehaviour
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         output[0] = "Magic Powder: " + ps.Money.ToString();
         output[1] = "Health: " + ps.HP.ToString();
         output[2] = "Level: " + ps.Level.ToString();
         output[3] = "Repair Status: " + ps.RepairStatus.ToString() + "%";
         output[4] = "System Parts: " + ps.SystemParts.ToString();
-        output[5] = "Time Left: " + timer.ToString();
+        output[5] = "Time Left: " + timer.ToString("F2");
         tmp.text = output[index];
 
         timer = 60 - Time.timeSinceLevelLoad;

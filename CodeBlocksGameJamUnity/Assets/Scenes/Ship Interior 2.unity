@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
+  scaleCostWithLevel: 0
+  itemCost: 0a0000000f00000019000000
 --- !u!1001 &34292552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1255,7 +1257,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 275929416}
-  - component: {fileID: 275929417}
   m_Layer: 0
   m_Name: EnemySpawnPoint (2)
   m_TagString: Untagged
@@ -1277,20 +1278,6 @@ Transform:
   m_Father: {fileID: 839309995}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &275929417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275929415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
 --- !u!1 &318252184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,7 +3004,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 701316899}
-  - component: {fileID: 701316900}
   m_Layer: 0
   m_Name: EnemySpawnPoint (4)
   m_TagString: Untagged
@@ -3039,20 +3025,6 @@ Transform:
   m_Father: {fileID: 839309995}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &701316900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701316898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
 --- !u!1 &731780140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,7 +3329,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788476384}
-  - component: {fileID: 788476385}
   m_Layer: 0
   m_Name: EnemySpawnPoint (3)
   m_TagString: Untagged
@@ -3379,20 +3350,6 @@ Transform:
   m_Father: {fileID: 839309995}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &788476385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788476383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
 --- !u!1 &839309994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,6 +3359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 839309995}
+  - component: {fileID: 839309996}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -3429,6 +3387,29 @@ Transform:
   m_Father: {fileID: 75489587}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839309996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839309994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
+  spawnPoints:
+  - {fileID: 275929415}
+  - {fileID: 788476383}
+  - {fileID: 701316898}
+  - {fileID: 1415437403}
+  - {fileID: 891450488}
+  - {fileID: 1258952768}
+  spawnProbability: 0.3
+  timeToNextSpawn: 1
 --- !u!1 &869697389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,7 +3515,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 891450489}
-  - component: {fileID: 891450490}
   m_Layer: 0
   m_Name: EnemySpawnPoint (6)
   m_TagString: Untagged
@@ -3556,20 +3536,6 @@ Transform:
   m_Father: {fileID: 839309995}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &891450490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891450488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
 --- !u!1 &958614783
 GameObject:
   m_ObjectHideFlags: 0
@@ -4532,6 +4498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
+  scaleCostWithLevel: 0
+  itemCost: 0a0000000f00000019000000
 --- !u!1 &1090125996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5143,7 +5111,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1258952769}
-  - component: {fileID: 1258952770}
   m_Layer: 0
   m_Name: EnemySpawnPoint (7)
   m_TagString: Untagged
@@ -5165,20 +5132,6 @@ Transform:
   m_Father: {fileID: 839309995}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1258952770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258952768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
 --- !u!1 &1386806973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,7 +5435,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415437404}
-  - component: {fileID: 1415437405}
   m_Layer: 0
   m_Name: EnemySpawnPoint (5)
   m_TagString: Untagged
@@ -5504,20 +5456,6 @@ Transform:
   m_Father: {fileID: 839309995}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1415437405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415437403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686a42485ed004046811fc17424d8ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 7699048718119614924, guid: fe486edf7c6fefb419a9e37825a47999, type: 3}
 --- !u!1 &1439373602
 GameObject:
   m_ObjectHideFlags: 0
@@ -8153,6 +8091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  scaleCostWithLevel: 0
+  itemCost: 0a0000000f00000019000000
 --- !u!1 &1876691169
 GameObject:
   m_ObjectHideFlags: 0

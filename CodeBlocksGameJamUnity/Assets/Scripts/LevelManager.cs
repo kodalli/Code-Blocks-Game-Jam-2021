@@ -10,8 +10,9 @@ public class LevelManager : MonoBehaviour
     public Transform respawnPoint;
     public GameObject playerPrefab;
     public GameObject door;
-    private PlayerState ps;
+    public PlayerState ps;
     public GameObject spawner;
+    public readonly float levelTimeLength = 60f;
 
     private void Awake()
     {
@@ -22,40 +23,20 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
-        
-    }
-
-    private void FixedUpdate()
-    {
+        Debug.Log(ps.LevelType);
         if (ps.LevelType == 0)
         {
+            // Activate Merchant Level
             door.SetActive(false);
-            for (int i = 0; i < spawner.transform.childCount; i++)
-            {
-                var child = spawner.transform.GetChild(i).gameObject;
-                if (child != null)
-                    child.SetActive(false);
-            }
-        }
-        else if(ps.LevelType == 1 && ps.Spawn)
-        {
-            door.SetActive(true);
-            for (int i = 0; i < spawner.transform.childCount; i++)
-            {
-                var child = spawner.transform.GetChild(i).gameObject;
-                if (child != null)
-                    child.SetActive(true);
-            }
+            ToggleSpawner(false);
         } else
         {
+            // Activate Enemy level
             door.SetActive(true);
-            for (int i = 0; i < spawner.transform.childCount; i++)
-            {
-                var child = spawner.transform.GetChild(i).gameObject;
-                if (child != null)
-                    child.SetActive(false);
-            }
+            ToggleSpawner(true);
+            
         }
+        
     }
 
     public void Respawn()
@@ -71,5 +52,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Start Menu");
     }
 
-    // Call PlayerState.SavePlayer() each time a scene change happens to save information globally
+    public void ToggleSpawner(bool flag)
+    {
+        spawner.SetActive(flag);
+    }
+
 }
