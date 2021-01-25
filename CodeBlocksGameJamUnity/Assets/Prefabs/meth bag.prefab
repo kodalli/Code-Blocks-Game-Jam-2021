@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -987361204244519240}
   m_Layer: 0
   m_Name: meth bag
-  m_TagString: Untagged
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

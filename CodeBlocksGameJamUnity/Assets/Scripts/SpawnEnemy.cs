@@ -6,13 +6,13 @@ public class SpawnEnemy : MonoBehaviour
 {
     public GameObject[] enemies;
     private int randX;
-    public float spawnRate = 2f;
+    private float spawnRate;
     float nextSpawn = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        spawnRate = 10f - GlobalControl.Instance.Level;
     }
 
     // Update is called once per frame
@@ -26,4 +26,5 @@ public class SpawnEnemy : MonoBehaviour
             Instantiate(enemies[randX], transform.position, Quaternion.identity);
         }
     }
+
 }

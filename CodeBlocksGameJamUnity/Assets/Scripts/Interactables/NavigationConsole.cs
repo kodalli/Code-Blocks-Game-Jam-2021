@@ -7,18 +7,30 @@ public class NavigationConsole : MonoBehaviour
     private bool isNear = false;
     [SerializeField] private GameObject key;
     private GameObject temp;
-    //private PlayerState ps;
+    private PlayerState ps;
+    private GameObject player;
+    public GameObject navMenu, gameComponents;
+    private bool isPause = false;
 
     private void Start()
     {
-        //ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        if (isNear && Input.GetKeyDown(KeyCode.E))
+        if (isNear && Input.GetKeyDown(KeyCode.E) && !isPause)
         {
-            Debug.Log("Navigation Console Clicked");
+            ps.SavePlayer();
+            isPause = true;
+            activateMenu();
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && isPause)
+        {
+            ps.SavePlayer();
+            isPause = false;
+            deactivateMenu();
         }
     }
 
@@ -40,5 +52,21 @@ public class NavigationConsole : MonoBehaviour
             isNear = false;
             Destroy(temp);
         }
+    }
+
+    void activateMenu()
+    {
+        navMenu.SetActive(true);
+        gameComponents.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Shooting>().enabled = false;
+    }
+    void deactivateMenu()
+    {
+        navMenu.SetActive(false);
+        gameComponents.SetActive(true);
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Shooting>().enabled = true;
+
     }
 }

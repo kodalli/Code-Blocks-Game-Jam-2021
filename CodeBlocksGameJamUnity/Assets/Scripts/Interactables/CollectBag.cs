@@ -7,6 +7,7 @@ public class CollectBag : MonoBehaviour
     PlayerState ps;
     private void Start()
     {
+        SFXManager.instance.PlayPop();
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
     }
     private void OnCollisionEnter2D(Collision2D collision)

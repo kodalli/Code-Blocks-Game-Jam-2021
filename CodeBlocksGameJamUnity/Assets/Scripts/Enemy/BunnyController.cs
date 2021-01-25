@@ -54,6 +54,7 @@ public class BunnyController : MonoBehaviour
         {
             health -= 75;
             Time.timeScale = 0.00001f;
+            SFXManager.instance.PlayHitMarker();
         }
         if (health < 0)
             Die();

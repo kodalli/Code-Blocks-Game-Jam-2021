@@ -9,8 +9,9 @@ public class LevelManager : MonoBehaviour
 
     public Transform respawnPoint;
     public GameObject playerPrefab;
-
+    public GameObject door;
     private PlayerState ps;
+    public GameObject spawner;
 
     private void Awake()
     {
@@ -21,17 +22,40 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    ps.SavePlayer();
-        //    SceneManager.LoadScene("Start Menu");
-        //}
-        if (Input.GetKeyDown(KeyCode.Space))
-            ps.SystemParts += 10;
+        if (ps.LevelType == 0)
+        {
+            door.SetActive(false);
+            for (int i = 0; i < spawner.transform.childCount; i++)
+            {
+                var child = spawner.transform.GetChild(i).gameObject;
+                if (child != null)
+                    child.SetActive(false);
+            }
+        }
+        else if(ps.LevelType == 1 && ps.Spawn)
+        {
+            door.SetActive(true);
+            for (int i = 0; i < spawner.transform.childCount; i++)
+            {
+                var child = spawner.transform.GetChild(i).gameObject;
+                if (child != null)
+                    child.SetActive(true);
+            }
+        } else
+        {
+            door.SetActive(true);
+            for (int i = 0; i < spawner.transform.childCount; i++)
+            {
+                var child = spawner.transform.GetChild(i).gameObject;
+                if (child != null)
+                    child.SetActive(false);
+            }
+        }
     }
 
     public void Respawn()
@@ -40,6 +64,11 @@ public class LevelManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = respawnPoint.position;
         ps.HP = 100f;
+    }
+    public void toMainMenu()
+    {
+        ps.SavePlayer();
+        SceneManager.LoadScene("Start Menu");
     }
 
     // Call PlayerState.SavePlayer() each time a scene change happens to save information globally
