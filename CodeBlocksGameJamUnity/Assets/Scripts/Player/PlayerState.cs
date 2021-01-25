@@ -28,4 +28,34 @@ public class PlayerState : MonoBehaviour
         GlobalControl.Instance.Level = Level;
         GlobalControl.Instance.SystemParts = SystemParts;
     }
+
+    public void Button1()
+    {
+        if (Money >= Level*10)
+        {
+            Money -= Level * 10;
+            SystemParts += 10;
+            SavePlayer();
+        }
+    }
+
+    public void Button2()
+    {
+        if (Money >= Level * 15)
+        {
+            Money -= Level * 15;
+            SystemParts += 15;
+            SavePlayer();
+        }
+    }
+
+    public void Button3()
+    {
+        if (Money >= Level * 25)
+        {
+            Money -= Level * 25;
+            SystemParts += 25;
+            SavePlayer();
+        }
+    }
 }
