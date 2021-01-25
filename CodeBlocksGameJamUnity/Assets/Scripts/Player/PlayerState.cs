@@ -9,6 +9,8 @@ public class PlayerState : MonoBehaviour
     public float RepairStatus;
     public float Level;
     public float SystemParts;
+    public int LevelType;
+    public int increment;
 
     // Load data from GlobalControl
     private void Start()
@@ -18,6 +20,8 @@ public class PlayerState : MonoBehaviour
         RepairStatus = GlobalControl.Instance.RepairStatus;
         Level = GlobalControl.Instance.Level;
         SystemParts = GlobalControl.Instance.SystemParts;
+        LevelType = GlobalControl.Instance.LevelType;
+        increment = GlobalControl.Instance.increment;
     }
 
     public void SavePlayer()
@@ -27,6 +31,8 @@ public class PlayerState : MonoBehaviour
         GlobalControl.Instance.RepairStatus = RepairStatus;
         GlobalControl.Instance.Level = Level;
         GlobalControl.Instance.SystemParts = SystemParts;
+        GlobalControl.Instance.LevelType = LevelType;
+        GlobalControl.Instance.increment = increment;
     }
 
     public void Button1()

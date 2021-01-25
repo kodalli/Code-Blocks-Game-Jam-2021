@@ -122,3 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 6015523535228782959, guid: e875495cf5518bc4897c743fe953c456, type: 3}
+  navMenu: {fileID: 0}
+  gameComponents: {fileID: 0}

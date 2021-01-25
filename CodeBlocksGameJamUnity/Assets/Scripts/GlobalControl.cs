@@ -13,6 +13,7 @@ public class GlobalControl : MonoBehaviour
     public float Level;
     public float SystemParts;
     public int LevelType;
+    public int increment;
 
     private void Awake()
     {
