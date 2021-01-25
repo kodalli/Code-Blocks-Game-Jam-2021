@@ -14,7 +14,7 @@ public class NavigationConsole : MonoBehaviour
 
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

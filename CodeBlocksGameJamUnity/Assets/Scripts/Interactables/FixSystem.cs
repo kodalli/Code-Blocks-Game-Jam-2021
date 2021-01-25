@@ -16,7 +16,7 @@ public class FixSystem : MonoBehaviour
 
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
         anim = GetComponent<Animator>();
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
@@ -53,7 +53,8 @@ public class FixSystem : MonoBehaviour
         if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet") && health > 0)
         {
             health -= 5f;
-            bar.localScale = new Vector3(1f, health/100f, 1f);
+            float scale = health / 100f > 0.01f ? health / 100f : 0.01f;
+            bar.localScale = new Vector3(1f, scale, 1f);
             if (health <= 0)
             {
                 anim.SetBool("SystemOn", false);

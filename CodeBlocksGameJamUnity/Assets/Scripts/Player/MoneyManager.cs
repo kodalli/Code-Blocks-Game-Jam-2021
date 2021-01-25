@@ -8,7 +8,7 @@ public class MoneyManager : MonoBehaviour
 
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
     }
     public void Button1()
     {

@@ -17,7 +17,7 @@ public class ShopMenu : MonoBehaviour
     private void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
         if (scaleCostWithLevel)
         {
             output[0] = "Buy 10 Ship Parts MP" + (itemCost[0] * ps.Level).ToString();

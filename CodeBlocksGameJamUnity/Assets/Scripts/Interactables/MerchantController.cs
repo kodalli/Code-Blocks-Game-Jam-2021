@@ -6,8 +6,6 @@ public class MerchantController : MonoBehaviour
 {
     private bool isNear = false;
     private PlayerState ps;
-    [SerializeField] private float cost = 25;
-    [SerializeField] private float quantityPartsSold = 25;
     [SerializeField] private GameObject key;
     private GameObject temp;
     public GameObject pauseMenuUI, gameComponents;
@@ -17,36 +15,23 @@ public class MerchantController : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
     }
 
     private void Update()
     {
-        //if (isNear && ps.Money >= cost && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    // Load Shop Scene
-        //    ps.Money -= cost;
-        //    ps.SystemParts += quantityPartsSold;
-        //    ChangePrice();
-        //}
-
         if (isNear && Input.GetKeyDown(KeyCode.E) && !isPause)
         {
             ps.SavePlayer();
             isPause = true;
-            activateMenu();
+            ActivateMenu();
         }
         else if (Input.GetKeyDown(KeyCode.E) && isPause)
         {
             ps.SavePlayer();
             isPause = false;
-            deactivateMenu();
+            DeactivateMenu();
         }
-    }
-
-    private void ChangePrice()
-    {
-        cost *= ps.Level;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -69,14 +54,14 @@ public class MerchantController : MonoBehaviour
         }
     }
 
-    void activateMenu()
+    private void ActivateMenu()
     {
         pauseMenuUI.SetActive(true);
         gameComponents.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<Shooting>().enabled = false;
     }
-    void deactivateMenu()
+    private void DeactivateMenu()
     {
         pauseMenuUI.SetActive(false);
         gameComponents.SetActive(true);

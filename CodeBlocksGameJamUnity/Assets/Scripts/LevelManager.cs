@@ -18,11 +18,11 @@ public class LevelManager : MonoBehaviour
     {
         instance = this;
         Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
     }
 
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
         Debug.Log(ps.LevelType);
         if (ps.LevelType == 0)
         {

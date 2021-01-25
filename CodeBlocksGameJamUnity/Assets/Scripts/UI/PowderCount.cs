@@ -16,7 +16,7 @@ public class PowderCount : MonoBehaviour
     private void Start()
     {
         tmp = GetComponent<TextMeshProUGUI>();
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
     }
 
     private void FixedUpdate()

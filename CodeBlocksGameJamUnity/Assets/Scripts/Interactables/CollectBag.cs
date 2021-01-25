@@ -8,7 +8,7 @@ public class CollectBag : MonoBehaviour
     private void Start()
     {
         SFXManager.instance.PlayPop();
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

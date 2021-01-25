@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour
                     Instantiate(enemies[Random.Range(0, enemies.Length)], g.transform.position, Quaternion.identity);   
         } else if (Time.time > LevelManager.instance.levelTimeLength)
         {
-            Debug.Log("");
+            //Debug.Log("");
             levelTimeUp = true;
             LevelManager.instance.ToggleSpawner(false);
         }

@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     private PlayerState ps;
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
     }
     private void Update()
     {
