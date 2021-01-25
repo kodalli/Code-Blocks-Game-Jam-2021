@@ -23,7 +23,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(ps.LevelType);
         if (ps.LevelType == 0)
         {
             // Activate Merchant Level
@@ -34,9 +33,7 @@ public class LevelManager : MonoBehaviour
             // Activate Enemy level
             door.SetActive(true);
             ToggleSpawner(true);
-            
         }
-        
     }
 
     public void Respawn()
@@ -46,7 +43,7 @@ public class LevelManager : MonoBehaviour
         player.transform.position = respawnPoint.position;
         ps.HP = 100f;
     }
-    public void toMainMenu()
+    public void ToMainMenu()
     {
         ps.SavePlayer();
         SceneManager.LoadScene("Start Menu");

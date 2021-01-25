@@ -15,7 +15,7 @@ public class PlayerState : MonoBehaviour
     public int[] SystemsHP = new int[4];
 
     // Load data from GlobalControl
-    private void Start()
+    private void Awake()
     {
         HP = GlobalControl.Instance.HP;
         Money = GlobalControl.Instance.Money;

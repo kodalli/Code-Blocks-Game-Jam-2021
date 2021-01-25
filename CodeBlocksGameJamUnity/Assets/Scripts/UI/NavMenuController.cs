@@ -27,17 +27,18 @@ public class NavMenuController : MonoBehaviour
     public void Merchant()
     {
         ps.LevelType = 0;
-        ps.Level++;
-        Debug.Log(ps.Level);
+        ps.Level += 1;
+        //Debug.Log(ps.LevelType);
         Deactivate();
 
         ps.increment += 2;
+        ps.SavePlayer();
 
         if (ps.increment >= buttons.Count - 1)
         {
             // last level
             //LoadScene();
-            ps.SavePlayer();
+            //ps.SavePlayer();
             return;
         }
             
@@ -49,17 +50,20 @@ public class NavMenuController : MonoBehaviour
     public void Enemy()
     {
         ps.LevelType = 1;
+        //GlobalControl.Instance.LevelType = 1;
         ps.Level += 1;
-
+        //Debug.Log(ps.LevelType);
         Deactivate();
 
         ps.increment += 2;
+        ps.SavePlayer();
+        //Debug.Log("navmenu " + LevelManager.instance.ps.LevelType.ToString());
 
         if (ps.increment >= buttons.Count - 1)
         {
             // last level
             //LoadScene();
-            ps.SavePlayer();
+            //ps.SavePlayer();
             return;
         }
             

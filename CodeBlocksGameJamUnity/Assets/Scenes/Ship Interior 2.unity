@@ -918,6 +918,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 6604092576032048283, guid: 90d836a5a4650dc4291b5daa535210d5,
     type: 3}
   door: {fileID: 8362151355959695677}
+  ps: {fileID: 0}
   spawner: {fileID: 839309994}
 --- !u!4 &127019799
 Transform:
@@ -7250,7 +7251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 127019798}
-        m_MethodName: toMainMenu
+        m_MethodName: ToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
