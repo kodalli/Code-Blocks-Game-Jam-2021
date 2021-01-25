@@ -74,11 +74,14 @@ public class MerchantController : MonoBehaviour
         pauseMenuUI.SetActive(true);
         gameComponents.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Shooting>().enabled = false;
     }
     void deactivateMenu()
     {
         pauseMenuUI.SetActive(false);
         gameComponents.SetActive(true);
         player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Shooting>().enabled = true;
+
     }
 }

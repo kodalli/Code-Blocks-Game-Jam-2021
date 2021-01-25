@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public Transform respawnPoint;
     public GameObject playerPrefab;
-
+    public GameObject door;
     private PlayerState ps;
 
     private void Awake()
@@ -30,8 +30,12 @@ public class LevelManager : MonoBehaviour
         //    ps.SavePlayer();
         //    SceneManager.LoadScene("Start Menu");
         //}
-        if (Input.GetKeyDown(KeyCode.Space))
-            ps.SystemParts += 10;
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //    ps.SystemParts += 10;
+        if (GlobalControl.Instance.LevelType == 0)
+            door.SetActive(false);
+        else
+            door.SetActive(true);
     }
 
     public void Respawn()
