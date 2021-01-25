@@ -15,6 +15,7 @@ public class MapGen : MonoBehaviour
     private const float NODE_DIST = 10 * RATIO;
     private int totalNodes;
     private int[] encounterChoice;
+    public Transform canvasT;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,8 +68,8 @@ public class MapGen : MonoBehaviour
     }
     private void DrawMaze()
     {
-        xPos = 0;
-        yPos = 0;
+        xPos = transform.position.x;
+        yPos = transform.position.y;
         float nD2 = NODE_DIST / 2;
         int f = 0;
         for (int i = 1; i < Depth; i++)
