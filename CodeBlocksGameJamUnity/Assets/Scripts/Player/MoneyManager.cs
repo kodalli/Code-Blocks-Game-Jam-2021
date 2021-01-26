@@ -17,6 +17,11 @@ public class MoneyManager : MonoBehaviour
             ps.Money -= 10;
             ps.SystemParts += 10;
             ps.SavePlayer();
+            SFXManager.instance.PlayPurchase();
+        } 
+        else
+        {
+            SFXManager.instance.PlayPurchaseFail();
         }
     }
 
@@ -27,6 +32,11 @@ public class MoneyManager : MonoBehaviour
             ps.Money -= 15;
             ps.SystemParts += 15;
             ps.SavePlayer();
+            SFXManager.instance.PlayPurchase();
+        }
+        else
+        {
+            SFXManager.instance.PlayPurchaseFail();
         }
     }
 
@@ -37,6 +47,11 @@ public class MoneyManager : MonoBehaviour
             ps.Money -= 25;
             ps.SystemParts += 25;
             ps.SavePlayer();
+            SFXManager.instance.PlayPurchase();
+        }
+        else
+        {
+            SFXManager.instance.PlayPurchaseFail();
         }
     }
 }
