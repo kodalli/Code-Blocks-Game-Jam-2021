@@ -12,9 +12,9 @@ public class MoneyManager : MonoBehaviour
     }
     public void Button1()
     {
-        if (ps.Money >= ps.Level * 10)
+        if (ps.Money >= 10)
         {
-            ps.Money -= ps.Level * 10;
+            ps.Money -= 10;
             ps.SystemParts += 10;
             ps.SavePlayer();
         }
@@ -22,9 +22,9 @@ public class MoneyManager : MonoBehaviour
 
     public void Button2()
     {
-        if (ps.Money >= ps.Level * 15)
+        if (ps.Money >= 15)
         {
-            ps.Money -= ps.Level * 15;
+            ps.Money -= 15;
             ps.SystemParts += 15;
             ps.SavePlayer();
         }
@@ -32,9 +32,9 @@ public class MoneyManager : MonoBehaviour
 
     public void Button3()
     {
-        if (ps.Money >= ps.Level * 25)
+        if (ps.Money >= 25)
         {
-            ps.Money -= ps.Level * 25;
+            ps.Money -= 25;
             ps.SystemParts += 25;
             ps.SavePlayer();
         }

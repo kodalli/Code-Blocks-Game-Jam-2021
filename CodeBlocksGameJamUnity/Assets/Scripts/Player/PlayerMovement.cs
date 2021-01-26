@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        ps = GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
         //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     

@@ -18,17 +18,14 @@ public class LevelManager : MonoBehaviour
     {
         instance = this;
         Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
-    }
-
-    private void Start()
-    {
+        ps = GetComponent<PlayerState>();
         if (ps.LevelType == 0)
         {
             // Activate Merchant Level
             door.SetActive(false);
             ToggleSpawner(false);
-        } else
+        }
+        else
         {
             // Activate Enemy level
             door.SetActive(true);

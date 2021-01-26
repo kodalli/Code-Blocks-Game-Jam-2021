@@ -24,6 +24,8 @@ public class FixSystem : MonoBehaviour
                 bar = child;
         }
         bar.localScale = new Vector3(1f, 0f, 1f);
+        health = ps.SystemsHP[index];
+        UpdateHealthBar();
     }
 
     private void Update()
@@ -34,8 +36,8 @@ public class FixSystem : MonoBehaviour
             ps.SystemParts -= repairCost;
             ps.RepairStatus += 25f;
             SFXManager.instance.PlaySystemActivate();
-            bar.localScale = new Vector3(1f, 1f, 1f);
             health = 100f;
+            UpdateHealthBar();
         }
         ps.SystemsHP[index] = (int)health;
     }
@@ -53,8 +55,7 @@ public class FixSystem : MonoBehaviour
         if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet") && health > 0)
         {
             health -= 5f;
-            float scale = health / 100f > 0.01f ? health / 100f : 0.01f;
-            bar.localScale = new Vector3(1f, scale, 1f);
+            UpdateHealthBar();
             if (health <= 0)
             {
                 anim.SetBool("SystemOn", false);
@@ -74,5 +75,11 @@ public class FixSystem : MonoBehaviour
             isNear = false;
             Destroy(temp);
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        float scale = health / 100f > 0f ? health / 100f : 0f;
+        bar.localScale = new Vector3(1f, scale, 1f);
     }
 }
