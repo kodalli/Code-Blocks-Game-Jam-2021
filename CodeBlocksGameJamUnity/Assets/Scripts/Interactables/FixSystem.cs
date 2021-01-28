@@ -38,6 +38,9 @@ public class FixSystem : MonoBehaviour
             SFXManager.instance.PlaySystemActivate();
             health = 100f;
             UpdateHealthBar();
+        } else if (isNear && Input.GetKeyDown(KeyCode.E))
+        {
+            SFXManager.instance.PlayPurchaseFail(); 
         }
         ps.SystemsHP[index] = (int)health;
     }

@@ -2654,6 +2654,7 @@ MonoBehaviour:
   SystemParts: 0
   LevelType: 0
   increment: 0
+  SystemsHP: 00000000000000000000000000000000
 --- !u!4 &2095041872
 Transform:
   m_ObjectHideFlags: 0
