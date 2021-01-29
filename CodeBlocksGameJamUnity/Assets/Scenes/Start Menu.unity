@@ -638,7 +638,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2095041870}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &344208889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,8 +2650,11 @@ MonoBehaviour:
   HP: 100
   Money: 0
   RepairStatus: 0
-  Level: 1
+  Level: 0
   SystemParts: 0
+  LevelType: 0
+  increment: 0
+  SystemsHP: 00000000000000000000000000000000
 --- !u!4 &2095041872
 Transform:
   m_ObjectHideFlags: 0

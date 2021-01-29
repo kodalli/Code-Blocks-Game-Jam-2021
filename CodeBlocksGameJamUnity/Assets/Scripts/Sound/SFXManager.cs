@@ -11,6 +11,9 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private AudioSource pop;
     [SerializeField] private AudioSource theme1;
     [SerializeField] private AudioSource systemActivate;
+    [SerializeField] private AudioSource purchase;
+    [SerializeField] private AudioSource purchaseFail;
+    [SerializeField] private AudioSource theme2;
 
     private void Awake()
     {
@@ -19,7 +22,17 @@ public class SFXManager : MonoBehaviour
 
     private void Start()
     {
-        theme1.Play();
+        switch (LevelManager.instance.ps.LevelType)
+        {
+            case 0:
+                theme2.Play();
+                break;
+            case 1:
+                theme1.Play();
+                break;
+            default:
+                break;
+        }
     }
 
     public void PlayGunShot()
@@ -41,5 +54,15 @@ public class SFXManager : MonoBehaviour
     public void PlaySystemActivate()
     {
         systemActivate.PlayOneShot(systemActivate.clip, 0.3f);
+    }
+
+    public void PlayPurchase()
+    {
+        purchase.PlayOneShot(purchase.clip, 0.6f);
+    }
+
+    public void PlayPurchaseFail()
+    {
+        purchaseFail.PlayOneShot(purchaseFail.clip, 0.6f);
     }
 }

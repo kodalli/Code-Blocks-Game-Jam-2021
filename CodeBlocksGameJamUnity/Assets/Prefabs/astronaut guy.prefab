@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6604092575889609448}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.37949604, y: 0.09272113, z: 0}
+  m_LocalPosition: {x: -0.41, y: 0.12, z: 0}
   m_LocalScale: {x: 1.4487675, y: 1.1822306, z: 1}
   m_Children: []
   m_Father: {fileID: 6604092576015968160}
@@ -141,8 +141,6 @@ GameObject:
   - component: {fileID: 6604092576032048281}
   - component: {fileID: 6604092576032048285}
   - component: {fileID: 6604092576032048274}
-  - component: {fileID: 323221759680615221}
-  - component: {fileID: 1332370637881933204}
   m_Layer: 0
   m_Name: astronaut guy
   m_TagString: Player
@@ -271,7 +269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6604092576032048283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e6b9b1a178a8846b85bf384c3beb1f, type: 3}
+  m_Script: {fileID: 11500000, guid: f919635201cc92c4eb68864836de6bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -310,31 +308,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &323221759680615221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604092576032048283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a2688d80d859ea4baef44a82b522c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1332370637881933204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604092576032048283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fe2a7482dbc334a93484e06d7575ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 0
-  Money: 0
-  RepairStatus: 0
-  Level: 0

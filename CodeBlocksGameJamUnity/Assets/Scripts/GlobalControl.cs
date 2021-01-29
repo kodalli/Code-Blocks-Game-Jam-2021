@@ -12,6 +12,10 @@ public class GlobalControl : MonoBehaviour
     public float RepairStatus;
     public float Level;
     public float SystemParts;
+    public int LevelType;
+    public int increment;
+    public int[] SystemsHP = new int[4];
+
     private void Awake()
     {
         if (Instance == null) {
@@ -20,6 +24,11 @@ public class GlobalControl : MonoBehaviour
         } else if (Instance != this){
             Destroy(gameObject);
         }
+    }
+    public void ChangeVolume(float val)
+    {
+        AudioListener.volume = val;
+        Debug.Log("val");
     }
 
 }

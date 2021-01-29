@@ -7,25 +7,42 @@ public class FixSystem : MonoBehaviour
     private bool isNear = false;
     private PlayerState ps;
     private Animator anim;
-    [SerializeField] private float repairCost = 25;
+    [SerializeField] private float repairCost = 15;
     [SerializeField] private GameObject key;
     private GameObject temp;
+    private float health = 0;
+    private Transform bar;
+    [SerializeField] private int index;
 
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
         anim = GetComponent<Animator>();
+        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+        {
+            if (child.name == "Bar")
+                bar = child;
+        }
+        bar.localScale = new Vector3(1f, 0f, 1f);
+        health = ps.SystemsHP[index];
+        UpdateHealthBar();
     }
 
     private void Update()
     {
-        if (isNear && ps.SystemParts >= repairCost && Input.GetKeyDown(KeyCode.E) && ps.RepairStatus < 100)
+        if (isNear && ps.SystemParts >= repairCost && Input.GetKeyDown(KeyCode.E) && health <= 0)
         {
-            anim.SetTrigger("SystemOn");
+            anim.SetBool("SystemOn", true);
             ps.SystemParts -= repairCost;
-            ps.RepairStatus += 25;
+            ps.RepairStatus += 25f;
             SFXManager.instance.PlaySystemActivate();
+            health = 100f;
+            UpdateHealthBar();
+        } else if (isNear && Input.GetKeyDown(KeyCode.E))
+        {
+            SFXManager.instance.PlayPurchaseFail(); 
         }
+        ps.SystemsHP[index] = (int)health;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,6 +54,21 @@ public class FixSystem : MonoBehaviour
             pos.y += 1.5f; // hover above
             temp = Instantiate(key, pos, Quaternion.identity);
         }
+
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet") && health > 0)
+        {
+            health -= 5f;
+            UpdateHealthBar();
+            if (health <= 0)
+            {
+                anim.SetBool("SystemOn", false);
+                if (ps.RepairStatus > 0)
+                {
+                    ps.RepairStatus -= 25f;
+                }
+                
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -46,5 +78,11 @@ public class FixSystem : MonoBehaviour
             isNear = false;
             Destroy(temp);
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        float scale = health / 100f > 0f ? health / 100f : 0f;
+        bar.localScale = new Vector3(1f, scale, 1f);
     }
 }

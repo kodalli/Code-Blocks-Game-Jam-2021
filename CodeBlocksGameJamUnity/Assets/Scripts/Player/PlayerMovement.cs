@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
-    Vector2 mousePos;
     Vector2 movement;
     bool facingRight = false;
     Animator anim;
@@ -18,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        ps = GetComponent<PlayerState>();
+        ps = LevelManager.instance.ps;
         //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     

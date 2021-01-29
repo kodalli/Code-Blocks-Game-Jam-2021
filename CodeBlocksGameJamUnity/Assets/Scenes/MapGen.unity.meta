@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:CodeBlocksGameJamUnity/Assets/Scripts/Sound.meta
-guid: 2b9813b6a3bd39549a473ecf3816a160
-folderAsset: yes
+<<<<<<< HEAD:CodeBlocksGameJamUnity/Assets/Scenes/MapGen.unity.meta
+guid: 4699437fc4ef34044ba7af30e2e48b57
 =======
-guid: b410dd0cf72953948908254b3c4afe9e
->>>>>>> origin/Ganesh:CodeBlocksGameJamUnity/Assets/Scenes/MapGen.unity.meta
+guid: 55699e282871b4e488c192afc4f1c3ba
+folderAsset: yes
+>>>>>>> Tej:CodeBlocksGameJamUnity/Assets/Sounds/Music.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

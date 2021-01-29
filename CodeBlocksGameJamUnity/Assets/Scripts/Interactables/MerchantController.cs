@@ -6,30 +6,32 @@ public class MerchantController : MonoBehaviour
 {
     private bool isNear = false;
     private PlayerState ps;
-    [SerializeField] private float cost = 25;
-    [SerializeField] private float quantityPartsSold = 25;
     [SerializeField] private GameObject key;
     private GameObject temp;
+    public GameObject pauseMenuUI, gameComponents;
+    private bool isPause = false;
+    private GameObject player;
 
     private void Start()
     {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        ps = LevelManager.instance.ps;
     }
 
     private void Update()
     {
-        if (isNear && ps.Money >= cost && Input.GetKeyDown(KeyCode.E))
+        if (isNear && Input.GetKeyDown(KeyCode.E) && !isPause)
         {
-            // Load Shop Scene
-            ps.Money -= cost;
-            ps.SystemParts += quantityPartsSold;
-            ChangePrice();
+            ps.SavePlayer();
+            isPause = true;
+            ActivateMenu();
         }
-    }
-
-    private void ChangePrice()
-    {
-        cost *= ps.Level;
+        else if (Input.GetKeyDown(KeyCode.E) && isPause)
+        {
+            ps.SavePlayer();
+            isPause = false;
+            DeactivateMenu();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,5 +52,21 @@ public class MerchantController : MonoBehaviour
             isNear = false;
             Destroy(temp);
         }
+    }
+
+    private void ActivateMenu()
+    {
+        pauseMenuUI.SetActive(true);
+        gameComponents.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Shooting>().enabled = false;
+    }
+    private void DeactivateMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        gameComponents.SetActive(true);
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Shooting>().enabled = true;
+
     }
 }

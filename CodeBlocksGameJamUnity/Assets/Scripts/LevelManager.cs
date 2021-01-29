@@ -9,29 +9,28 @@ public class LevelManager : MonoBehaviour
 
     public Transform respawnPoint;
     public GameObject playerPrefab;
-
-    private PlayerState ps;
+    public GameObject door;
+    public PlayerState ps;
+    public GameObject spawner;
+    public readonly float levelTimeLength = 60f;
 
     private void Awake()
     {
         instance = this;
         Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
-    }
-
-    private void Start()
-    {
-        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerState>();
-    }
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    ps.SavePlayer();
-        //    SceneManager.LoadScene("Start Menu");
-        //}
-        if (Input.GetKeyDown(KeyCode.Space))
-            ps.SystemParts += 10;
+        ps = GetComponent<PlayerState>();
+        if (ps.LevelType == 0)
+        {
+            // Activate Merchant Level
+            door.SetActive(false);
+            ToggleSpawner(false);
+        }
+        else
+        {
+            // Activate Enemy level
+            door.SetActive(true);
+            ToggleSpawner(true);
+        }
     }
 
     public void Respawn()
@@ -41,11 +40,15 @@ public class LevelManager : MonoBehaviour
         player.transform.position = respawnPoint.position;
         ps.HP = 100f;
     }
-    public void toMainMenu()
+    public void ToMainMenu()
     {
         ps.SavePlayer();
         SceneManager.LoadScene("Start Menu");
     }
 
-    // Call PlayerState.SavePlayer() each time a scene change happens to save information globally
+    public void ToggleSpawner(bool flag)
+    {
+        spawner.SetActive(flag);
+    }
+
 }
