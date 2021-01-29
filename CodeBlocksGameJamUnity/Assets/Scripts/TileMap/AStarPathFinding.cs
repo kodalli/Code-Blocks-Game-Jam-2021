@@ -5,9 +5,9 @@ using UnityEngine;
 public class AStarPathFinding : MonoBehaviour
 {
 
-    private Vector2Int StartLocation { get; set; }
-    private Vector2Int EndLocation { get; set; }
-    private bool[,] Map { get; set; }
+    public static Vector2Int StartLocation;
+    public static Vector2Int EndLocation;
+    public bool[,] Map;
     private Node endNode, startNode;
     private float width, height;
     private Node[,] nodes;
@@ -44,13 +44,11 @@ public class AStarPathFinding : MonoBehaviour
     {
         public Vector2Int Location { get; set; }
         public bool IsWalkable { get; set; }
-        public float Gdist { get; set; }
+        public float Gdist { get; private set; }
         public float Heuristic { get; private set; } // make setter function
         public float Fcost { get { return this.Gdist + this.Heuristic; } }
         public NodeState State { get; set; }
         public Node ParentNode { get;  set; }
-        
-
     }
 
     public enum NodeState { Untested, Open, Closed }
@@ -137,9 +135,24 @@ public class AStarPathFinding : MonoBehaviour
         return 0f; 
     }
 
-    public virtual IEnumerable<Vector2Int> GetAdjacentLocations (Vector2Int location)
+    public IEnumerable<Vector2Int> GetAdjacentLocations (Vector2Int location)
     {
+        // No diagonal tiles 
         List<Vector2Int> neighbors = new List<Vector2Int>();
+
+        // up
+        if (location.y + 1 < height)
+            neighbors.Add(new Vector2Int(location.x, location.y + 1));
+        // down
+        if (location.y - 1 >= 0)
+            neighbors.Add(new Vector2Int(location.x, location.y - 1));
+        // left 
+        if (location.x - 1 >= 0)
+            neighbors.Add(new Vector2Int(location.x - 1, location.y));
+        // right
+        if (location.x + 1 < width)
+            neighbors.Add(new Vector2Int(location.x + 1, location.y));
+
         return neighbors;
     }
 }
