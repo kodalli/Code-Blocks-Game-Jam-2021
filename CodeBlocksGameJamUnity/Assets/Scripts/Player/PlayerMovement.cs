@@ -10,33 +10,38 @@ public class PlayerMovement : MonoBehaviour
     bool facingRight = false;
     Animator anim;
     PlayerState ps;
-    //private Camera cam;
-    //[SerializeField] private bool gravityOn = false;
+
+    //Particle System
+    private ParticleSystem dust;
+
+    void createDust()
+    {
+        dust.Play();
+    }
+    void Flip()
+    {
+        createDust();
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         ps = LevelManager.instance.ps;
-        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        dust = GameObject.Find("dust").GetComponent<ParticleSystem>();
     }
     
-
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
     void FixedUpdate()
     {
         
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        //Vector2 dir = mousePos - rb.position;
-        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-        //rb.rotation = angle;
 
         // animate player
         anim.SetFloat("AnimSpeed", movement.sqrMagnitude);
@@ -55,12 +60,6 @@ public class PlayerMovement : MonoBehaviour
                 ps.HP -= 10;
             else
                 LevelManager.instance.Respawn();
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
     }
 
 }

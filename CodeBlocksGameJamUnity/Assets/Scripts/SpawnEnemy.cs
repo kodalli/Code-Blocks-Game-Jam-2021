@@ -11,7 +11,6 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private float timeToNextSpawn = 10f;
     private bool levelTimeUp = false;
 
-
     void FixedUpdate()
     {
         if (!levelTimeUp && Time.time > nextSpawn)
