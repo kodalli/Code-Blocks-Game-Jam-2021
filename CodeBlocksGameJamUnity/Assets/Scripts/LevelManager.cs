@@ -19,6 +19,11 @@ public class LevelManager : MonoBehaviour
         instance = this;
         Instantiate(playerPrefab, respawnPoint.position, Quaternion.identity);
         ps = GetComponent<PlayerState>();
+
+    }
+
+    private void Start()
+    {
         if (ps.LevelType == 0)
         {
             // Activate Merchant Level
