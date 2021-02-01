@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         ps = LevelManager.instance.ps;
         dust = GameObject.Find("dust").GetComponent<ParticleSystem>();
+
     }
     
     void Update()

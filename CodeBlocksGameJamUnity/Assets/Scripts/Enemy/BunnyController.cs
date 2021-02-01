@@ -1,37 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using System.Linq;
 
 public class BunnyController : MonoBehaviour
 {
     private bool facingRight = false;
     [SerializeField] private float moveSpeed = 2f;
     private Vector2 movement;
-    private Vector2 player;
+    public Vector2 player;
     private Rigidbody2D rb;
     [SerializeField] private GameObject itemDrop;
     [SerializeField] private int health = 100;
+    [SerializeField] bool enablePathFinding;
+    [SerializeField] GameObject walkableTiles;
+    private Tilemap tilemap;
+    private List<Vector2Int> pathToWalk = new List<Vector2Int>();
+    private bool walking = false;
+    [SerializeField] private GameObject pivot;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tilemap = walkableTiles.GetComponent<Tilemap>();
+        tilemap.CompressBounds();
+        player = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 
     private void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform.position;
         movement = (player - new Vector2(transform.position.x, transform.position.y)).normalized;
     }
 
     void FixedUpdate()
     {
-
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (enablePathFinding && !walking)
+        {
+            //pathToWalk.Clear();
+            pathToWalk = FindPathToGoal(player, tilemap);
+            //pathToWalk.ForEach(item => Debug.Log(item));
+            //StartCoroutine(WalkPath(pathToWalk));
+            walking = true;
+        } else if (!enablePathFinding)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
 
         if (movement.x > 0 && !facingRight)
             Flip();
         else if (movement.x < 0 && facingRight)
             Flip();
+
+        if (walking)
+        {
+            if (pathToWalk.Count > 0)
+            {
+                WalkPath();
+            } else
+            {
+                walking = false;
+            }
+        }
     }
 
     void Flip()
@@ -62,4 +92,135 @@ public class BunnyController : MonoBehaviour
     }
 
 
+    private void WalkPath()
+    {
+        //Vector2 movement = (pathToWalk[0] - new Vector2(transform.position.x, transform.position.y)).normalized;
+        //rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+        //rb.AddForce(movement * moveSpeed);
+        pivot.transform.position = Vector2.MoveTowards(pivot.transform.position, pathToWalk[0], moveSpeed * Time.deltaTime);
+
+        //Vector2 movement = (pathToWalk[0] - new Vector2(pivot.transform.position.x, pivot.transform.position.y)).normalized;
+        //Rigidbody2D rb = pivot.GetComponent<Rigidbody2D>();
+        //rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+
+        Vector2Int curPos = new Vector2Int((int)pivot.transform.position.x, (int)pivot.transform.position.y);
+        //Debug.Log(curPos + ", " + pathToWalk[0]);
+        if (curPos == pathToWalk[0])
+            pathToWalk.RemoveAt(0);
+    }
+
+
+    #region
+    private List<Vector2Int> FindPathToGoal(Vector3 goal, Tilemap tilemap)
+    {
+        // these all only need to be declared once as long as the map does not change, move out of this 
+        var vals = TilemapCoordinates(tilemap);
+        Vector2Int[,] locations = vals.Item1;
+        bool[,] map = vals.Item2;
+
+        List<Node> worldTiles = new List<Node>();
+        for (int i = 0; i < map.GetLength(0); i++)
+        {
+            for (int j = 0; j < map.GetLength(1); j++)
+            {
+                Node n = new Node() { index = new Vector2Int(i, j), isWalkable = map[i, j], worldLocation = locations[i, j] };
+            }
+        }
+
+        AStarPath astar = new AStarPath();
+
+        // these are world locations need index in tilemap
+        Vector2Int startPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        Vector2Int goalPosition = new Vector2Int((int)goal.x, (int)goal.y);
+
+        startPosition = CoordinatesOf(worldTiles, startPosition);
+        goalPosition = CoordinatesOf(worldTiles, goalPosition);
+
+        List<Vector2Int> path = astar.FindPath(map, startPosition, goalPosition);
+
+        // get world coordinates from index values
+        List<Vector2Int> worldPath= new List<Vector2Int>();
+        path.ForEach(item => worldPath.Add(locations[item.x, item.y]));
+
+        return worldPath;
+    }
+
+    public (Vector2Int[,], bool[,]) TilemapCoordinates(Tilemap tileMap)
+    {
+        // Get all the coordinates of tiles that exist on the tilemap, Vector2Int array for coords and bool array for if it exists
+
+        Vector2Int[,] Points = new Vector2Int[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
+        bool[,] Map = new bool[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
+
+        for (int n = tileMap.cellBounds.xMin; n < tileMap.cellBounds.xMax; n++)
+        {
+            for (int p = tileMap.cellBounds.yMin; p < tileMap.cellBounds.yMax; p++)
+            {
+                Vector3Int localPlace = new Vector3Int(n, p, (int)tileMap.transform.position.y);
+                Vector3 place = tileMap.CellToWorld(localPlace);
+
+                int i = n - tileMap.cellBounds.xMin;
+                int j = p - tileMap.cellBounds.yMin;
+
+                if (tileMap.HasTile(localPlace))
+                {
+                    //Tile at "place"
+                    Points[i, j].x = (int)place.x;
+                    Points[i, j].y = (int)place.y;
+                    Map[i, j] = true;
+                }
+                else
+                {
+                    //No tile at "place"
+                    Map[i, j] = false;
+                }
+            }
+        }
+
+        return (Points, Map);
+    }
+
+    //private Vector2Int CoordinatesOf(Vector2Int[,] matrix, Vector2Int value)
+    //{
+    //    // This sucks, make matrix into 1d list or maybe create hashmap with world coordinates to index values in bool walkable map
+    //    int w = matrix.GetLength(0); // width
+    //    int h = matrix.GetLength(1); // height
+
+    //    for (int x = 0; x < w; ++x)
+    //    {
+    //        for (int y = 0; y < h; ++y)
+    //        {
+    //            if (matrix[x, y].Equals(value))
+    //                return new Vector2Int(x, y);
+    //        }
+    //    }
+    //    Debug.LogError("Coordinates not found");
+    //    return new Vector2Int(-1, -1);
+    //}
+
+    private Vector2Int CoordinatesOf(List<Node> worldTiles, Vector2Int worldLocation)
+    {
+        Node n = worldTiles.FirstOrDefault(item => item.worldLocation == worldLocation && item.isWalkable);
+        if (n != null)
+            return n.index;
+        else
+        {
+            var node = worldTiles.FirstOrDefault(item => item.worldLocation == new Vector2Int(worldLocation.x - 1, worldLocation.y) && item.isWalkable) ??
+                worldTiles.FirstOrDefault(item => item.worldLocation == new Vector2Int(worldLocation.x + 1, worldLocation.y) && item.isWalkable) ??
+                worldTiles.FirstOrDefault(item => item.worldLocation == new Vector2Int(worldLocation.x, worldLocation.y + 1) && item.isWalkable) ??
+                worldTiles.FirstOrDefault(item => item.worldLocation == new Vector2Int(worldLocation.x, worldLocation.y - 1) && item.isWalkable);
+            //Debug.LogError("Coordinates not found");
+            return node == null ? new Vector2Int(-1, -1) : node.index;
+        }
+        
+    }
+
+    // Holds infomration from map, locations, and the index of the world location
+    private class Node
+    {
+        public Vector2Int index;
+        public Vector2Int worldLocation;
+        public bool isWalkable;
+    }
+    #endregion
 }

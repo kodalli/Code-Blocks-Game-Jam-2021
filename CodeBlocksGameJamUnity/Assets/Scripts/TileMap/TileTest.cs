@@ -6,63 +6,51 @@ using TMPro;
 
 public class TileTest : MonoBehaviour
 {
+    public Vector2Int startPosition;
+    public Vector2Int goalPosition;
+    private Tilemap tilemap;
+    private readonly string ttag = "Player";
+    private Vector3[,] locations;
+    private bool[,] map;
+
     private void Start()
     {
-        Tilemap tilemap = GetComponent<Tilemap>();
+        tilemap = GetComponent<Tilemap>();
         tilemap.CompressBounds();
-        BoundsInt bounds = tilemap.cellBounds;
-        TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+        startPosition = new Vector2Int(23, 30);
+        //startPosition = new Vector2Int(7, 9);
+        goalPosition = new Vector2Int(27, 19);
 
-        var vals = TilemapCoordinates(tilemap);
-        Vector2Int[,] locations = vals.Item1;
-        bool[,] map = vals.Item2;
-
-        //DisplayTiles(allTiles, bounds);
-        //TilemapCoordinates(tilemap);
-        //TilemapCoordinates2(tilemap);
+        var vals = TilemapCoordinates(tilemap, true);
+        locations = vals.Item1;
+        map = vals.Item2;
     }
 
-    #region
-    private Vector2Int[,] DisplayTiles(TileBase[] allTiles, BoundsInt bounds)
+    public void Update()
     {
-        Vector2Int[,] Points = new Vector2Int[bounds.size.x, bounds.size.y];
-        for (int x = 0; x < bounds.size.x; x++)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            for (int y = 0; y < bounds.size.y; y++)
+            foreach (var g in GameObject.FindGameObjectsWithTag(ttag))
+                Destroy(g);
+
+            AStarPath astar = new AStarPath();
+            List<Vector2Int> path = astar.FindPath(map, startPosition, goalPosition);
+            foreach (var thing in path)
             {
-                TileBase tile = allTiles[x + y * bounds.size.x];
-                if (tile != null)
-                {
-                    //Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
-                    Points[x, y] = new Vector2Int(x, y);
-                }
-                else
-                {
-                    //Debug.Log("x:" + x + " y:" + y + " tile: (null");
-                }
+                Debug.Log(thing);
+                Vector3 loc = locations[thing.x, thing.y];
+                CreateWorldText("*", null, loc, 10, Color.green, true);
             }
         }
-        return Points;
     }
 
-    private void TilemapCoordinates2(Tilemap tilemap)
-    {
-        List<Vector3> availablePlaces = new List<Vector3>();
-        foreach (Vector3 position in tilemap.cellBounds.allPositionsWithin)
-        {
-            availablePlaces.Add(position);
-        }
-        //Debug.Log(availablePlaces.Count);
-    }
-    #endregion
 
-    private (Vector2Int[,], bool[,]) TilemapCoordinates(Tilemap tileMap)
+    public (Vector3[,], bool[,]) TilemapCoordinates(Tilemap tileMap, bool display)
     {
         // Get all the coordinates of tiles that exist on the tilemap, Vector2Int array for coords and bool array for if it exists
         // Vector2Int is not a nullable type
 
-        //List<Vector3> availablePlaces = new List<Vector3>();
-        Vector2Int[,] Points = new Vector2Int[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
+        Vector3[,] Points = new Vector3[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
         bool[,] Map = new bool[tileMap.cellBounds.size.x, tileMap.cellBounds.size.y];
 
         for (int n = tileMap.cellBounds.xMin; n < tileMap.cellBounds.xMax; n++)
@@ -78,35 +66,35 @@ public class TileTest : MonoBehaviour
                 if (tileMap.HasTile(localPlace))
                 {
                     //Tile at "place"
-                    //availablePlaces.Add(place);
-
-                    Points[i, j] = new Vector2Int((int)place.x, (int)place.y);
+                    Points[i, j] = place;
                     Map[i, j] = true;
 
-                    TextMeshPro t = CreateWorldText("1", null, place, 3, null);
-                    //t.SetText(place.x.ToString() + "," + place.y.ToString() + " " + Points[i,j].x + "," + Points[i,j].y);
-                    t.SetText(Points[i, j].x + "," + Points[i, j].y);
+                    if (display)
+                    {
+                        //CreateWorldText(i + "," + j, null, place, 3, null, false);
+                        CreateWorldText(place.x + "," + place.y, null, place, 3, null, false);
+                    }
                     
+
                 }
                 else
                 {
                     //No tile at "place"
                     Map[i, j] = false;
-                    TextMeshPro t = CreateWorldText("0", null, place, 3, null);
-                    t.SetText(Points[i, j].x + "," + Points[i,j].y);
+                    //TextMeshPro t = CreateWorldText("null", null, place, 3, null);
+                    //t.SetText(Points[i, j].x + "," + Points[i,j].y);
                 }
             }
         }
 
-        //Debug.Log(availablePlaces.Count);
         return (Points, Map);
     }
 
-
-
-    private TextMeshPro CreateWorldText(string text, Transform parent = null, Vector3 localPostion = default, int fontSize = 40, Color? color = null, TextAlignmentOptions textAlignment = TextAlignmentOptions.Center, int sortingOrder = 5000)
+    private TextMeshPro CreateWorldText(string text, Transform parent = null, Vector3 localPostion = default, int fontSize = 40, Color? color = null, bool isTagged = true, TextAlignmentOptions textAlignment = TextAlignmentOptions.Center, int sortingOrder = 5000)
     {
         GameObject gObj = new GameObject("World Text", typeof(TextMeshPro));
+        if (isTagged)
+            gObj.tag = ttag;
         Transform tForm = gObj.transform;
         tForm.SetParent(parent, false);
         tForm.localPosition = localPostion;
@@ -118,4 +106,5 @@ public class TileTest : MonoBehaviour
         textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
         return textMesh;
     }
+
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AStarPathFinding : MonoBehaviour
+public class AStarPathFinding
 {
 
-    public static Vector2Int StartLocation;
-    public static Vector2Int EndLocation;
-    public bool[,] Map;
+    //private Vector2Int StartLocation;
+    //private Vector2Int EndLocation;
+    private bool[,] Map;
     private Node endNode, startNode;
     private float width, height;
     private Node[,] nodes;
@@ -16,8 +16,8 @@ public class AStarPathFinding : MonoBehaviour
     public AStarPathFinding(bool[,] map, Vector2Int start, Vector2Int end) 
     {
         Map = map;
-        StartLocation = start;
-        EndLocation = end;
+        //StartLocation = start;
+        //EndLocation = end;
         width = Map.GetLength(0);
         height = Map.GetLength(1);
 
@@ -44,9 +44,9 @@ public class AStarPathFinding : MonoBehaviour
     {
         public Vector2Int Location { get; set; }
         public bool IsWalkable { get; set; }
-        public float Gdist { get; private set; }
-        public float Heuristic { get; private set; } // make setter function
-        public float Fcost { get { return this.Gdist + this.Heuristic; } }
+        public float Gdist { get; private set; } // start to current
+        public float Heuristic { get; private set; } // end to current
+        public float Fcost { get { return this.Gdist + this.Heuristic; } } // total cost
         public NodeState State { get; set; }
         public Node ParentNode { get;  set; }
     }
@@ -59,7 +59,7 @@ public class AStarPathFinding : MonoBehaviour
         nextNodes.Sort((node1, node2) => node1.Fcost.CompareTo(node2.Fcost));
         foreach (var nextNode in nextNodes)
         {
-            if (nextNode.Location == this.endNode.Location)
+            if (nextNode.Location == endNode.Location)
                 return true;
             else if (Search(nextNode)) // Note: Recurses back into Search(Node)
                 return true;
@@ -78,10 +78,10 @@ public class AStarPathFinding : MonoBehaviour
             int y = location.y;
 
             // Stay within the grid's boundaries
-            if (x < 0 || x >= this.width || y < 0 || y >= this.height)
+            if (x < 0 || x >= width || y < 0 || y >= height)
                 continue;
 
-            Node node = this.nodes[x, y];
+            Node node = nodes[x, y];
             // Ignore non-walkable nodes
             if (!node.IsWalkable)
                 continue;
@@ -119,7 +119,7 @@ public class AStarPathFinding : MonoBehaviour
         bool success = Search(startNode);
         if (success)
         {
-            Node node = this.endNode;
+            Node node = endNode;
             while (node.ParentNode != null)
             {
                 path.Add(node.Location);
@@ -130,28 +130,22 @@ public class AStarPathFinding : MonoBehaviour
         return path;
     }
 
-    public virtual float GetTraversalCost(Vector2Int cur, Vector2Int parent) { 
+    public virtual float GetTraversalCost(Vector2Int cur, Vector2Int parent) {
         // incur penalities for certain terrain
-        return 0f; 
+        return Mathf.Abs(cur.x - parent.x) + Mathf.Abs(cur.y - parent.y);
     }
 
-    public IEnumerable<Vector2Int> GetAdjacentLocations (Vector2Int location)
+    private IEnumerable<Vector2Int> GetAdjacentLocations (Vector2Int location)
     {
         // No diagonal tiles 
-        List<Vector2Int> neighbors = new List<Vector2Int>();
+        List<Vector2Int> neighbors = new List<Vector2Int> {
+            new Vector2Int(location.x, location.y + 1),
+            new Vector2Int(location.x, location.y - 1),
+            new Vector2Int(location.x - 1, location.y),
+            new Vector2Int(location.x + 1, location.y)
+        };
 
-        // up
-        if (location.y + 1 < height)
-            neighbors.Add(new Vector2Int(location.x, location.y + 1));
-        // down
-        if (location.y - 1 >= 0)
-            neighbors.Add(new Vector2Int(location.x, location.y - 1));
-        // left 
-        if (location.x - 1 >= 0)
-            neighbors.Add(new Vector2Int(location.x - 1, location.y));
-        // right
-        if (location.x + 1 < width)
-            neighbors.Add(new Vector2Int(location.x + 1, location.y));
+        
 
         return neighbors;
     }
