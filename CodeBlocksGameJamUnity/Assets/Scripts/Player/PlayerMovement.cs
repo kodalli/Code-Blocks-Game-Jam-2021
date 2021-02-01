@@ -48,9 +48,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("AnimSpeed", movement.sqrMagnitude);
 
         // make character face correction direction
-        if (movement.x > 0 && !facingRight)
-            Flip();
-        else if (movement.x < 0 && facingRight)
+        if (movement.x > 0 && !facingRight || movement.x < 0 && facingRight)
             Flip();
     }
 
