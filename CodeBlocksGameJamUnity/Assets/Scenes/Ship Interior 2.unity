@@ -8624,6 +8624,12 @@ PrefabInstance:
       objectReference: {fileID: 839309994}
     - target: {fileID: 8158001258614462454, guid: 8c1eb25354a186b43aed110cf665f7cb,
         type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 2027146979933188320, guid: 7db9bb8b5ff8b4946970692e49c0df21,
+        type: 3}
+    - target: {fileID: 8158001258614462454, guid: 8c1eb25354a186b43aed110cf665f7cb,
+        type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1614919148}
