@@ -9,7 +9,7 @@ public class BunnyController : MonoBehaviour
     private bool facingRight = false;
     [SerializeField] private float moveSpeed = 2f;
     private Vector2 movement;
-    public Vector2 player;
+    public GameObject player;
     private Rigidbody2D rb;
     [SerializeField] private GameObject itemDrop;
     [SerializeField] private int health = 100;
@@ -17,30 +17,30 @@ public class BunnyController : MonoBehaviour
     [SerializeField] GameObject walkableTiles;
     private Tilemap tilemap;
     private List<Vector2Int> pathToWalk = new List<Vector2Int>();
-    private bool walking = false;
-    [SerializeField] private GameObject pivot;
+    public bool walking = false;
+    //[SerializeField] private GameObject pivot;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tilemap = walkableTiles.GetComponent<Tilemap>();
         tilemap.CompressBounds();
-        player = GameObject.FindGameObjectWithTag("Player").transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        movement = (player - new Vector2(transform.position.x, transform.position.y)).normalized;
+        movement = ((Vector2)player.transform.position - new Vector2(transform.position.x, transform.position.y)).normalized;
     }
 
     void FixedUpdate()
     {
-        if (enablePathFinding && !walking)
+        var playerPos = new Vector2(Mathf.RoundToInt(player.transform.position.x) + 0.5f, Mathf.RoundToInt(player.transform.position.y) + 0.5f);
+        if (enablePathFinding && !walking && rb.position.Round(1) != playerPos.Round(1))
         {
-            //pathToWalk.Clear();
-            pathToWalk = FindPathToGoal(player, tilemap);
+            pathToWalk.Clear();
+            pathToWalk = FindPathToGoal(player.transform.position, tilemap);
             pathToWalk.ForEach(item => Debug.Log(item));
-            //StartCoroutine(WalkPath(pathToWalk));
             walking = true;
         } else if (!enablePathFinding)
         {
@@ -94,19 +94,14 @@ public class BunnyController : MonoBehaviour
 
     private void WalkPath()
     {
-        //Vector2 movement = (pathToWalk[0] - new Vector2(transform.position.x, transform.position.y)).normalized;
-        //rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
-        //rb.AddForce(movement * moveSpeed);
-        transform.position = Vector2.MoveTowards(transform.position, pathToWalk[0], moveSpeed * Time.deltaTime);
 
-        //Rigidbody2D rb = pivot.GetComponent<Rigidbody2D>();
-        //Vector2 movement = (pathToWalk[0] - rb.position).normalized;
-        //rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        //Debug.Log(pathToWalk[0]);
-        Vector2Int curPos = new Vector2Int(Mathf.RoundToInt(rb.position.x), Mathf.RoundToInt(rb.position.y));
-        //var curPos = new Vector2Int((int)rb.position.x, (int)rb.position.y);
-        Debug.Log(curPos + ", " + pathToWalk[0]);
-        if (curPos == pathToWalk[0])
+        var walkto = new Vector2(pathToWalk[0].x + 0.5f, pathToWalk[0].y + 0.5f);
+
+        //if (pathToWalk.Count == 1)
+        //    walkto = player.transform.position.Round(1);
+
+        rb.MovePosition(rb.position + (walkto - rb.position).normalized * moveSpeed * Time.deltaTime);
+        if (rb.position.Round(1) == walkto.Round(1))
             pathToWalk.RemoveAt(0);
     }
 
@@ -132,8 +127,8 @@ public class BunnyController : MonoBehaviour
         AStarPath astar = new AStarPath();
 
         // these are world locations need index in tilemap
-        Vector2Int startPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
-        Vector2Int goalPosition = new Vector2Int((int)goal.x, (int)goal.y);
+        Vector2Int startPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        Vector2Int goalPosition = new Vector2Int(Mathf.RoundToInt(goal.x), Mathf.RoundToInt(goal.y));
 
         startPosition = CoordinatesOf(worldTiles, startPosition);
         goalPosition = CoordinatesOf(worldTiles, goalPosition);
@@ -167,8 +162,8 @@ public class BunnyController : MonoBehaviour
                 if (tileMap.HasTile(localPlace))
                 {
                     //Tile at "place"
-                    worldCoordinates[i, j].x = (int)place.x;
-                    worldCoordinates[i, j].y = (int)place.y;
+                    worldCoordinates[i, j].x = Mathf.RoundToInt(place.x);
+                    worldCoordinates[i, j].y = Mathf.RoundToInt(place.y);
                     walkableTiles[i, j] = true;
                 }
                 else
