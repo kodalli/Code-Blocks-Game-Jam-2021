@@ -28,15 +28,33 @@ public class PlayerMoveState : PlayerGroundedState
         base.LogicUpdate();
 
         player.CheckIfFlip();
-        //player.SetVelocityX(playerData.movementVelocity * input.x);
-        //player.SetVelocityY(playerData.movementVelocity * input.y);
-        player.SetVelocity(playerData.movementVelocity * input);
 
+        player.SetVelocity(playerData.movementVelocity * input);
         if (input == Vector2.zero)
         {
             stateMachine.ChangeState(player.IdleState);
         }
-  
+        else if(/*input != Vector2.zero &&*/ FlyInput)
+        {
+            player.InputHandler.UseFlyInput();
+            stateMachine.ChangeState(player.FlyState);
+        }
+
+        //if(xInput > 0)
+        //{
+        //    player.thisPlayer.transform.rotation = Quaternion.Euler(new Vector3(0f, -180f, 0f));
+        //}
+        //if (xInput < 0)
+        //{
+        //    player.thisPlayer.transform.rotation = Quaternion.Euler(new Vector3(0f, -180f, 0f));
+        //}
+
+        //player.SetVelocityX(playerData.movementVelocity * xInput);
+        //if (xInput == 0)
+        //{
+        //    stateMachine.ChangeState(player.IdleState);
+        //}
+
     }
 
     public override void PhysicsUpdate()
